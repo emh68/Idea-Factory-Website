@@ -1,0 +1,108 @@
+@media screen and (min-width: 640px) {
+
+    header {
+        display: flex;
+        /* flex-direction: row; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 250px;
+        height: auto;
+
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation li {
+        display: block;
+        flex: 1 1 100%;
+    }
+
+    .navigation a {
+        text-align: center;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    body {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    main {
+        margin: auto;
+        max-width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0;
+    }
+
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .vehicles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .vehicles-headline {
+        grid-column: 1 / -1;
+    }
+
+    .button-container {
+        grid-column: 1 / -1;
+    }
+
+    .button {
+        grid-column: 1 / -1;
+        width: 200px;
+    }
+
+    .social {
+        display: inline-block;
+        grid-column: 1 / -1;
+    }
+
+    .weather {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+    }
+
+    .weather hr {
+        grid-column: 1 / -1;
+    }
+
+    .scooters,
+    .atvs,
+    .jetskis {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .rentals-headline {
+        grid-column: 1 / -1;
+    }
+
+    .pricing {
+        display: grid;
+        grid-template-columns: 3fr;
+        max-width: 100%;
+    }
+}

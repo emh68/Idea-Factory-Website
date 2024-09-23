@@ -1,0 +1,698 @@
+@font-face {
+    font-family: 'bronkohregular';
+    src: url('fonts/bronkoh-regular-bf65519bc788d98-webfont.woff2');
+}
+
+@font-face {
+    font-family: 'bronkohextrabold';
+    src: url('fonts/bronkoh-extrabold-bf65519bc761d7b-webfont.woff2');
+}
+
+@font-face {
+    font-family: 'bronkoh-heavyitalic';
+    src: url('fonts/bronkoh-heavyitalic-bf65519bc78690c-webfont.woff2')
+}
+
+:root {
+    font-family: 'bronkohregular';
+    --font_breg: 'bronkohregular';
+    --font_bxbold: 'bronkohextrabold';
+    --font_hvyitalic: 'bronkoh-heavyitalic';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    /* position: relative; */
+    /*top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; */
+    color: #0C326B;
+    text-align: center;
+    margin: 0;
+    font-size: 3.5rem;
+    font-family: var(--font_hvyitalic), Arial, Helvetica, sans-serif;
+    text-shadow: 0 0 20px#fff;
+}
+
+.contact p {
+    z-index: 3;
+    color: #0C326B;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--font_hvyitalic);
+    padding: 20px;
+}
+
+h2 {
+    font-family: var(--font_hvyitalic), Arial, Helvetica, sans-serif;
+    color: #0C326B;
+}
+
+body {
+    max-width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ffec40; */
+    background-color: #6AD4E8;
+    padding: 10px 20px;
+}
+
+.logo {
+    justify-content: center;
+    align-content: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+#menu {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: .5rem .75rem;
+    color: #fff;
+}
+
+#menu::before {
+    content: "≡";
+    position: absolute;
+    right: 10px;
+    top: 2px;
+}
+
+.navigation {
+    font-family: var(--font_bxbold);
+    font-size: larger;
+    justify-content: center;
+}
+
+.navigation li {
+    display: none;
+    padding: 5px;
+    margin: 0;
+}
+
+.navigation a {
+    display: block;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+    color: #0C326B;
+    font-weight: 500;
+}
+
+.navigation a:hover,
+.navigation a:active {
+    color: #000;
+    background-color: #AAF3D7;
+}
+
+.navigation .active {
+    text-decoration: underline;
+    text-decoration-color: #F9FD46;
+    text-decoration-thickness: 4px;
+}
+
+.show li {
+    display: block;
+}
+
+#menu.show::before {
+    content: "x";
+}
+
+ul {
+    list-style-type: none;
+}
+
+.banner {
+    padding: 10px;
+    position: relative;
+    background-color: #ebebeb;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-text {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-temperature {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.banner-close {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    border: none;
+    background: none;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.wave-design-layer-1,
+.wave-design-layer-2,
+.wave-design-layer-3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+}
+
+.wave-design-layer-1 svg,
+.wave-design-layer-2 svg,
+.wave-design-layer-3 svg {
+    position: relative;
+    display: block;
+    width: calc(196% + 1.3px);
+    transform: rotateY(180deg);
+}
+
+.wave-design-layer-1 .shape-fill,
+.wave-design-layer-2 .shape-fill,
+.wave-design-layer-3 .shape-fill {
+    fill: #6AD4E8;
+}
+
+.wave-design-layer-1 svg {
+    height: 108px;
+}
+
+.wave-design-layer-2 svg {
+    height: 128px;
+}
+
+.wave-design-layer-3 svg {
+    height: 148px;
+}
+
+.wave-design-layer-2 .shape-fill {
+    opacity: 65%;
+}
+
+.wave-design-layer-3 .shape-fill {
+    opacity: 45%;
+}
+
+.wave-design-layer-4,
+.wave-design-layer-5,
+.wave-design-layer-6 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+.wave-design-layer-4 svg,
+.wave-design-layer-5 svg,
+.wave-design-layer-6 svg {
+    position: relative;
+    display: block;
+    width: calc(196% + 1.3px);
+    transform: rotateY(180deg);
+}
+
+.wave-design-layer-4 .shape-fill,
+.wave-design-layer-5 .shape-fill,
+.wave-design-layer-6 .shape-fill {
+    fill: #AAF3D7;
+}
+
+.wave-design-layer-4 svg {
+    height: 108px;
+}
+
+.wave-design-layer-5 svg {
+    height: 128px;
+}
+
+.wave-design-layer-6 svg {
+    height: 148px;
+}
+
+.wave-design-layer-5 .shape-fill {
+    opacity: 65%;
+}
+
+.wave-design-layer-6 .shape-fill {
+    opacity: 45%;
+}
+
+.vehicles,
+.rentals {
+    max-width: 100%;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+hr {
+    border: 1px solid #0C326B;
+    width: 20%;
+    margin: auto;
+}
+
+.scooters-container,
+.atvs-container,
+.jeeps-container,
+.jetski-container,
+.jeep-tour-container,
+.cenote-container {
+    max-width: 100%;
+    width: 325px;
+    height: 400px;
+    margin: 15px auto 15px;
+    background-color: #fff;
+}
+
+.scooters-container img,
+.atvs-container img,
+.jeeps-container img,
+.jetski-container img,
+.jeep-tour-container img,
+.cenote-container img {
+    max-width: 100%;
+    width: 325px;
+    height: auto;
+    padding: 5px;
+}
+
+.scooters-content {
+    padding: 5px;
+}
+
+.vehicles p {
+    padding: 10px;
+    text-align: center;
+}
+
+.button-container {
+    padding: 20px;
+    max-width: 100%;
+    z-index: 3;
+}
+
+.button {
+    display: block;
+    background-color: #0C326B;
+    color: #35F083;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    max-width: 200px;
+    margin: 0 auto;
+    z-index: 3;
+}
+
+.weather-container {
+    max-width: 100%;
+    padding-top: 120px;
+    background-color: #0C326B;
+}
+
+.current-weather,
+.tomorrow-weather,
+.day-after-tomorrow-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.weather {
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    color: #fff;
+    background-color: #0C326B;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.social {
+    margin: 20px auto;
+}
+
+.footer-content {
+    color: #35F083;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    background-color: #0C326B;
+    z-index: 5;
+}
+
+/*--------- Rentals --------------- */
+:root {
+    --back: #0C326B;
+    --back2: hsla(0, 0%, 95%, 1);
+    --foredark: hsla(0, 0%, 10%, 1);
+    --forelight: hsla(0, 0%, 100%, 1);
+    --border: hsla(0, 0%, 20%, .8);
+    --borderlight: hsla(0, 0%, 33%, .3);
+    --shadow: hsl(0, 0%, 50%);
+    --zebra: hsla(234, 76%, 77%, 0.26);
+}
+
+.metro-container,
+.dio-container,
+.pcx150-container,
+.honda-pioneer-container,
+.jeep2-container,
+.jeep4-container,
+.waverunner-ex-container,
+.waverunner-vx-container,
+.sea-doo-gti-container {
+    max-width: 250px;
+    height: auto;
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+.metro-container img,
+.dio-container img,
+.pcx150-container img,
+.jeep2-container img,
+.honda-pioneer-container img,
+.jeep4-container img,
+.waverunner-ex-container img,
+.waverunner-vx-container img,
+.sea-doo-gti-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pricing {
+    max-width: 100%;
+    max-width: 250px;
+    margin: auto;
+    overflow-x: auto;
+}
+
+table {
+    max-width: 100%;
+    margin: 10px auto;
+    border: thin solid var(--border);
+    box-shadow: 0 0 10px var(--shadow);
+    border-collapse: collapse;
+}
+
+#rentalBody {
+    background-color: rgb(255, 255, 255);
+}
+
+tr:first-child th,
+.highlight {
+    background-color: var(--back);
+    color: var(--forelight);
+}
+
+th,
+td {
+    padding: 7px 15px;
+    border: 1px solid var(--borderlight);
+}
+
+th {
+    background-color: var(--back2);
+    font-size: larger;
+}
+
+.special {
+    background-color: var(--back);
+}
+
+td {
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--zebra);
+}
+
+/*--------- Reservations ------------*/
+.reservations {
+    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+}
+
+form fieldset {
+    margin: 0 auto 10px;
+    max-width: 100%;
+    width: 600px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+form legend {
+    font-weight: 900;
+    font-size: large;
+}
+
+form label {
+    display: block;
+    padding-top: 1rem;
+}
+
+form label input {
+    display: block;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: .75rem;
+    width: 100%;
+    max-width: 20rem;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.rental-period-div label {
+    display: inline-flex;
+    margin-right: 40px;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.rental-period-div input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio-label {
+    cursor: pointer;
+    margin-right: 70px;
+}
+
+input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+.rental-container {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    max-width: 500px;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: .8rem;
+}
+
+.addRentalButton {
+    display: block;
+    border: none;
+    background-color: #0C326B;
+    color: #F9FD46;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+}
+
+#rentalInputs {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.totalCost {
+    font-weight: bold;
+    padding: 10px 0px;
+}
+
+.rental-policies {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: left;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+
+.rental-policies li {
+    list-style-type: disc;
+    padding: 5px;
+    margin-left: 20px;
+}
+
+.submitBtn {
+    display: block;
+    background-color: #0C326B;
+    color: #35F083;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    width: 200px;
+    margin: 20px auto;
+    z-index: 3;
+}
+
+picture img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------ CONTACT US -------*/
+.contact {
+    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+    padding-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-headline {
+    text-align: center;
+}
+
+.form-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.contact-form {
+    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    padding-left: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.message {
+    display: block;
+    width: 100%;
+}
+
+.contact-input {
+    background-color: #fff;
+    max-width: 300px;
+    border-radius: 0px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.contact-submitBtn {
+    padding: 10px 20px;
+    background-color: #0C326B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px;
+}
+
+.contact-submitBtn:hover {
+    background-color: #5bc2d1;
+}
+
+iframe {
+    width: 100%;
+    height: 480px;
+    border: none;
+    margin-top: -65px;
+}
+
+/* ----- Thank You ---- */
+.thankyou {
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 180px;
+    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+}
+
+.thankyou p {
+    align-content: center;
+    background-color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 2px solid #000;
+    border-radius: 5px;
+    color: #0C326B;
+    padding: 10px;
+}
