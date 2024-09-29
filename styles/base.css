@@ -1,23 +1,5 @@
-@font-face {
-    font-family: 'bronkohregular';
-    src: url('fonts/bronkoh-regular-bf65519bc788d98-webfont.woff2');
-}
-
-@font-face {
-    font-family: 'bronkohextrabold';
-    src: url('fonts/bronkoh-extrabold-bf65519bc761d7b-webfont.woff2');
-}
-
-@font-face {
-    font-family: 'bronkoh-heavyitalic';
-    src: url('fonts/bronkoh-heavyitalic-bf65519bc78690c-webfont.woff2')
-}
-
 :root {
-    font-family: 'bronkohregular';
-    --font_breg: 'bronkohregular';
-    --font_bxbold: 'bronkohextrabold';
-    --font_hvyitalic: 'bronkoh-heavyitalic';
+    font-family: 'Lato';
 }
 
 * {
@@ -27,83 +9,50 @@
 }
 
 h1 {
-    /* position: relative; */
-    /*top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3; */
-    color: #0C326B;
+    font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
     text-align: center;
-    margin: 0;
-    font-size: 3.5rem;
-    font-family: var(--font_hvyitalic), Arial, Helvetica, sans-serif;
-    text-shadow: 0 0 20px#fff;
 }
 
-.contact p {
-    z-index: 3;
-    color: #0C326B;
+h2,
+h3,
+h4 {
     text-align: center;
-    font-size: 1.5rem;
-    font-family: var(--font_hvyitalic);
-    padding: 20px;
+    /* padding: 20px; */
 }
 
-h2 {
-    font-family: var(--font_hvyitalic), Arial, Helvetica, sans-serif;
-    color: #0C326B;
-}
 
 body {
     max-width: 100%;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #ffec40; */
-    background-color: #6AD4E8;
-    padding: 10px 20px;
-}
 
-.logo {
-    justify-content: center;
-    align-content: center;
-}
-
-.logo img {
-    max-width: 100%;
-    height: auto;
-}
 
 #menu {
+    font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
     display: block;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
     padding: .5rem .75rem;
+    background-color: #2F3061;
     color: #fff;
 }
 
 #menu::before {
     content: "≡";
     position: absolute;
-    right: 10px;
-    top: 2px;
+    right: 15px;
 }
 
 .navigation {
-    font-family: var(--font_bxbold);
-    font-size: larger;
     justify-content: center;
+    background-color: #2F3061;
+    padding: 20px;
 }
 
 .navigation li {
     display: none;
-    padding: 5px;
+    padding: 0;
     margin: 0;
 }
 
@@ -112,20 +61,18 @@ header {
     padding: .5rem;
     text-align: center;
     text-decoration: none;
-    color: #0C326B;
+    color: #fff;
     font-weight: 500;
 }
 
 .navigation a:hover,
 .navigation a:active {
-    color: #000;
-    background-color: #AAF3D7;
+    color: white;
+    background-color: #a53860;
 }
 
-.navigation .active {
-    text-decoration: underline;
-    text-decoration-color: #F9FD46;
-    text-decoration-thickness: 4px;
+.active::before {
+    content: "👉 ";
 }
 
 .show li {
@@ -140,363 +87,366 @@ ul {
     list-style-type: none;
 }
 
-.banner {
-    padding: 10px;
-    position: relative;
-    background-color: #ebebeb;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner-text {
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 20px;
-}
-
-.banner-temperature {
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.banner-close {
-    position: absolute;
-    top: 4px;
-    right: 10px;
-    font-size: 20px;
-    font-weight: bolder;
-    border: none;
-    background: none;
-}
-
 .hero-container {
-    position: relative;
     width: 100%;
-    height: auto;
-    z-index: 0;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
-.hero img {
+.hero-container picture,
+.hero-container img {
     width: 100%;
     height: auto;
+    display: block;
     object-fit: cover;
-    z-index: 0;
 }
 
-.wave-design-layer-1,
-.wave-design-layer-2,
-.wave-design-layer-3 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    z-index: 2;
+.description p {
+    padding: 20px;
+
 }
 
-.wave-design-layer-1 svg,
-.wave-design-layer-2 svg,
-.wave-design-layer-3 svg {
-    position: relative;
-    display: block;
-    width: calc(196% + 1.3px);
-    transform: rotateY(180deg);
-}
-
-.wave-design-layer-1 .shape-fill,
-.wave-design-layer-2 .shape-fill,
-.wave-design-layer-3 .shape-fill {
-    fill: #6AD4E8;
-}
-
-.wave-design-layer-1 svg {
-    height: 108px;
-}
-
-.wave-design-layer-2 svg {
-    height: 128px;
-}
-
-.wave-design-layer-3 svg {
-    height: 148px;
-}
-
-.wave-design-layer-2 .shape-fill {
-    opacity: 65%;
-}
-
-.wave-design-layer-3 .shape-fill {
-    opacity: 45%;
-}
-
-.wave-design-layer-4,
-.wave-design-layer-5,
-.wave-design-layer-6 {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-    z-index: 2;
-}
-
-.wave-design-layer-4 svg,
-.wave-design-layer-5 svg,
-.wave-design-layer-6 svg {
-    position: relative;
-    display: block;
-    width: calc(196% + 1.3px);
-    transform: rotateY(180deg);
-}
-
-.wave-design-layer-4 .shape-fill,
-.wave-design-layer-5 .shape-fill,
-.wave-design-layer-6 .shape-fill {
-    fill: #AAF3D7;
-}
-
-.wave-design-layer-4 svg {
-    height: 108px;
-}
-
-.wave-design-layer-5 svg {
-    height: 128px;
-}
-
-.wave-design-layer-6 svg {
-    height: 148px;
-}
-
-.wave-design-layer-5 .shape-fill {
-    opacity: 65%;
-}
-
-.wave-design-layer-6 .shape-fill {
-    opacity: 45%;
-}
-
-.vehicles,
-.rentals {
-    max-width: 100%;
-    gap: 20px;
-    align-items: center;
+.button {
+    background-color: #2F3061;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
     text-align: center;
-    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
-    padding-bottom: 40px;
-    padding-top: 40px;
+    margin: 20px auto 20px;
+    width: 50%;
 }
 
 hr {
-    border: 1px solid #0C326B;
+    border: 1px solid;
     width: 20%;
     margin: auto;
 }
 
-.scooters-container,
-.atvs-container,
-.jeeps-container,
-.jetski-container,
-.jeep-tour-container,
-.cenote-container {
-    max-width: 100%;
-    width: 325px;
-    height: 400px;
-    margin: 15px auto 15px;
-    background-color: #fff;
-}
 
-.scooters-container img,
-.atvs-container img,
-.jeeps-container img,
-.jetski-container img,
-.jeep-tour-container img,
-.cenote-container img {
-    max-width: 100%;
-    width: 325px;
-    height: auto;
-    padding: 5px;
-}
-
-.scooters-content {
-    padding: 5px;
-}
-
-.vehicles p {
-    padding: 10px;
-    text-align: center;
-}
-
-.button-container {
-    padding: 20px;
-    max-width: 100%;
-    z-index: 3;
-}
-
-.button {
-    display: block;
-    background-color: #0C326B;
-    color: #35F083;
-    padding: 10px;
-    border-radius: 20px;
-    text-decoration: none;
-    max-width: 200px;
-    margin: 0 auto;
-    z-index: 3;
-}
-
-.weather-container {
-    max-width: 100%;
-    padding-top: 120px;
-    background-color: #0C326B;
-}
-
-.current-weather,
-.tomorrow-weather,
-.day-after-tomorrow-weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-}
-
-.weather {
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-    color: #fff;
-    background-color: #0C326B;
-    max-width: 100%;
-    margin: 0 auto;
-    z-index: 1;
-}
-
-.social {
-    margin: 20px auto;
-}
-
-.footer-content {
-    color: #35F083;
-    padding: 20px;
-}
 
 footer {
-    text-align: center;
-    padding: 20px;
     color: #fff;
-    background-color: #0C326B;
-    z-index: 5;
+    background-color: #2F3061;
+    text-align: center;
+    padding: 40px;
 }
 
-/*--------- Rentals --------------- */
-:root {
-    --back: #0C326B;
-    --back2: hsla(0, 0%, 95%, 1);
-    --foredark: hsla(0, 0%, 10%, 1);
-    --forelight: hsla(0, 0%, 100%, 1);
-    --border: hsla(0, 0%, 20%, .8);
-    --borderlight: hsla(0, 0%, 33%, .3);
-    --shadow: hsl(0, 0%, 50%);
-    --zebra: hsla(234, 76%, 77%, 0.26);
+/* ------- Dark Mode -------*/
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
 }
 
-.metro-container,
-.dio-container,
-.pcx150-container,
-.honda-pioneer-container,
-.jeep2-container,
-.jeep4-container,
-.waverunner-ex-container,
-.waverunner-vx-container,
-.sea-doo-gti-container {
-    max-width: 250px;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FED74F;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: '🔆';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    width: 22px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2F3061;
+}
+
+input:hover+.slider {
+    box-shadow: 0 0 20px #fff;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    content: '';
+    background-image: url('../images/moon.webp');
+    background-size: cover;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+    border-color: #eee;
+}
+
+.dark-mode .membersGrid .member-details a:visited,
+.dark-mode .events a:visited,
+.dark-mode .facts-container a:visited,
+.dark-mode .visit-links a:visited {
+    color: #b495d0;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.dark-mode .membersGrid .member-details a,
+.dark-mode .events a,
+.dark-mode .facts-container a,
+.dark-mode .visit-links a {
+    color: #ffe344;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.dark-mode .facts-container .facts-list li,
+.dark-mode header,
+.dark-mode .herotextbox,
+.dark-mode .membership-benefits,
+.dark-mode .events,
+.dark-mode .weather,
+.dark-mode .spotlight,
+.dark-mode .directory-view {
+    background-color: #000;
+}
+
+.dark-mode form legend,
+.dark-mode .facts-container {
+    color: #fff;
+    background-color: #000;
+}
+
+.dark-mode .feature,
+.dark-mode .membership-option {
+    color: #000;
+}
+
+.dark-mode .membersList h3,
+.dark-mode .membersList p {
+    color: #fff
+}
+
+.dark-mode .membersList article {
+    background-color: #161616;
+}
+
+.dark-mode .membersList article:nth-child(even) {
+    background-color: #000000;
+}
+
+/*------ Discover --------*/
+.container {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #2f30612d;
+}
+
+#message {
+    font-size: larger;
+    font-weight: 700;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sidebar {
+    display: grid;
+    background-color: #1c666650;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    border-radius: 10px;
+    grid-template-columns: 1fr;
+}
+
+.facts-container,
+.facts-list,
+.news,
+iframe {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.facts-container {
+    width: 100%;
     height: auto;
+    overflow: hidden;
+    padding-top: 20px;
+    position: relative;
     background-color: #fff;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.facts-list {
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.facts-list li {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+@keyframes autoplay {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.news {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
     margin: 20px auto;
 }
 
-.metro-container img,
-.dio-container img,
-.pcx150-container img,
-.jeep2-container img,
-.honda-pioneer-container img,
-.jeep4-container img,
-.waverunner-ex-container img,
-.waverunner-vx-container img,
-.sea-doo-gti-container img {
-    max-width: 100%;
-    height: auto;
-}
-
-.pricing {
-    max-width: 100%;
-    max-width: 250px;
-    margin: auto;
-    overflow-x: auto;
-}
-
-table {
-    max-width: 100%;
-    margin: 10px auto;
-    border: thin solid var(--border);
-    box-shadow: 0 0 10px var(--shadow);
-    border-collapse: collapse;
-}
-
-#rentalBody {
-    background-color: rgb(255, 255, 255);
-}
-
-tr:first-child th,
-.highlight {
-    background-color: var(--back);
-    color: var(--forelight);
-}
-
-th,
-td {
-    padding: 7px 15px;
-    border: 1px solid var(--borderlight);
-}
-
-th {
-    background-color: var(--back2);
-    font-size: larger;
-}
-
-.special {
-    background-color: var(--back);
-}
-
-td {
+.visit-links {
     text-align: center;
+    padding: 20px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: var(--zebra);
+.visit-links a {
+    font-weight: 700;
+    font-size: large;
+    word-wrap: break-word;
+    padding: 20px;
 }
 
-/*--------- Reservations ------------*/
-.reservations {
-    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
+.photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 4px #2f2f2f;
+}
+
+/* -------- Directory -------*/
+.directory-view {
+    margin-left: auto;
+    padding: 0.5rem;
+    background-color: #fff;
+    text-align: right;
+}
+
+.directory-view button {
+    padding: .5rem;
+    font-weight: 700;
+}
+
+.membersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 20px;
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.membersGrid img {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.membersList article {
+    padding: 25px;
+    background-color: #f0f0f0;
+}
+
+.membersList {
+    grid-gap: 0;
+    display: list-item;
+    list-style-type: none;
+}
+
+.membersList img,
+.membersList div,
+.membersList h3,
+.membersList p,
+.membersList a {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.membersList img {
+    display: none;
+}
+
+.membersList article:nth-child(even) {
+    background-color: #e1e1e1;
+}
+
+/*-------- Join Form ----------- */
+:root {
+    --border: #999;
+    --legend: #2f3061;
 }
 
 form fieldset {
-    margin: 0 auto 10px;
-    max-width: 100%;
-    width: 600px;
-    border: 2px solid #000;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #fff;
+    margin: 2rem auto;
+    max-width: 600px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 1.5rem 5%;
 }
 
 form legend {
-    font-weight: 900;
-    font-size: large;
+    color: var(--legend);
 }
 
 form label {
@@ -504,195 +454,84 @@ form label {
     padding-top: 1rem;
 }
 
-form label input {
+form label input,
+form label textarea {
     display: block;
     font-size: 1rem;
     border-radius: 4px;
     padding: .75rem;
-    width: 100%;
-    max-width: 20rem;
-    background-color: rgba(0, 0, 0, 0.1);
+    max-width: 50rem;
+    width: 80%;
 }
 
-.rental-period-div label {
-    display: inline-flex;
-    margin-right: 40px;
-    align-items: center;
-    margin-right: 30px;
-}
-
-.rental-period-div input[type="radio"] {
-    margin-right: 10px;
-}
-
-.radio-label {
-    cursor: pointer;
-    margin-right: 70px;
-}
-
-input[type="radio"] {
-    transform: scale(1.2);
-    margin-right: 5px;
-}
-
-label {
+.membership-option {
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-
-.rental-container {
-    border: 1px solid #000;
-    border-radius: 5px;
-    padding: 20px;
-    position: relative;
-    max-width: 500px;
-}
-
-.deleteButton {
-    position: absolute;
-    top: 6px;
-    right: 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: .8rem;
-}
-
-.addRentalButton {
-    display: block;
-    border: none;
-    background-color: #0C326B;
-    color: #F9FD46;
+    text-align: center;
+    border: 1px solid black;
     border-radius: 10px;
-    padding: .5rem 1rem;
-}
-
-#rentalInputs {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.totalCost {
-    font-weight: bold;
-    padding: 10px 0px;
-}
-
-.rental-policies {
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
-    padding: 20px;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 5px;
-}
-
-.rental-policies li {
-    list-style-type: disc;
-    padding: 5px;
-    margin-left: 20px;
-}
-
-.submitBtn {
-    display: block;
-    background-color: #0C326B;
-    color: #35F083;
     padding: 10px;
-    border-radius: 20px;
-    text-decoration: none;
-    width: 200px;
-    margin: 20px auto;
-    z-index: 3;
-}
-
-picture img {
+    margin-bottom: 20px;
     max-width: 100%;
-    height: auto;
 }
 
-/* ------ CONTACT US -------*/
-.contact {
-    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
-    padding-bottom: 40px;
-    position: relative;
-    overflow: hidden;
+.non-profit {
+    background-color: rgb(209, 220, 235);
 }
 
-.contact-headline {
+.brnze {
+    background-color: #f4e6cf;
+}
+
+.slvr {
+    background-color: #d8d8d8;
+}
+
+.gld {
+    background-color: #fcf7cf;
+}
+
+.membership-option h2 {
+    margin-top: 0;
+}
+
+.membership-option ul {
+    list-style: none;
+    padding: 0;
+}
+
+.membership-option ul li {
+    margin-bottom: 5px;
     text-align: center;
 }
 
-.form-container {
-    max-width: 100%;
-    margin: 0 auto;
+.membership-option .price {
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.contact-form {
-    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-label {
-    padding-left: 20px;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.message {
-    display: block;
-    width: 100%;
-}
-
-.contact-input {
-    background-color: #fff;
-    max-width: 300px;
-    border-radius: 0px;
+.membership-option input[type="radio"] {
+    margin-top: 5px;
 }
 
 .button-container {
     text-align: center;
 }
 
-.contact-submitBtn {
-    padding: 10px 20px;
-    background-color: #0C326B;
+form input.submitBtn {
+    border: none;
+    background-color: #2F3061;
     color: white;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 20px;
+    padding: .75rem 1.5rem;
+    margin: 0 auto 2rem auto;
+    max-width: 20rem;
 }
 
-.contact-submitBtn:hover {
-    background-color: #5bc2d1;
-}
-
-iframe {
-    width: 100%;
-    height: 480px;
-    border: none;
-    margin-top: -65px;
-}
-
-/* ----- Thank You ---- */
-.thankyou {
-    max-width: 100%;
+.thankyoumessage {
+    margin: 0 auto;
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    padding: 180px;
-    background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7);
-}
-
-.thankyou p {
-    align-content: center;
-    background-color: #fff;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border: 2px solid #000;
-    border-radius: 5px;
-    color: #0C326B;
-    padding: 10px;
+    padding: 200px;
 }

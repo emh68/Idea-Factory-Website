@@ -21,145 +21,100 @@
 
 <body>
     <header>
-        <h1>The Idea Factory</h1>
         <!-- <div class="logo">
-            <a href="index.html"><img src="images/" alt=""></a>
+            <a href="index.html"><img src="images/Screenshot 2024-09-24 133532.png" alt=""></a>
         </div> -->
-        <a id="menu" href="#" aria-label="Toggle Hamburger Menu"></a>
-        <nav>
-            <ul class="navigation">
-                <li><a href="#" class="active">HOME</a></li>
-                <li><a href="classes.html">CLASSES</a></li>
-                <li><a href="memberships.html">MEMBERSHIPS</a></li>
-                <li><a href="reservations.html">RESERVATIONS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="FAQs.html">FAQs</a></li>
-            </ul>
-        </nav>
+        <h1>Idea Factory</h1>
+
     </header>
+    <a id="menu" href="#" aria-label="Toggle Hamburger Menu"></a>
+    <nav>
+        <ul class="navigation">
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="classes.html">CLASSES</a></li>
+            <li><a href="memberships.html">MEMBERSHIPS</a></li>
+            <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li>
+            <!-- <li><a href="memberships.html">MEMBERSHIPS</a></li>
+            <li><a href="reservations.html">RESERVATIONS</a></li> -->
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="signup.html">SIGN UP</a></li>
+            <li><a href="login.html">LOG IN</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+        </ul>
+    </nav>
     <main>
         <div class="hero-container">
-
             <picture>
                 <source srcset="images/students_with_instructor.webp" media="(max-width: 640px)">
                 <source srcset="images/students_with_instructor.webp" media="(max-width: 1280px)">
-                <img src="images/students_with_instructor.webp" alt="students working on electronics with teacher"
-                    width="1920" height="1080">
+                <img src="images/students_with_instructor.webp" alt="students working on electronics with teacher" />
             </picture>
-            <!-- <div class="wave-design-layer-1">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div>
-            <div class="wave-design-layer-2">
-                <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div>
-            <div class="wave-design-layer-3">
-                <svg data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div> -->
         </div>
         <section class="description">
-            <h2>What is the Idea Factory?</h2>
-            <p>The Idea Factory is makerspace, but with instructors so you can learn the skills you want to learn and
-                then apply them.</p>
+            <h2>Welcome to the Idea Factory!</h2>
+            <hr>
+            <p>At The Idea Factory, you can bring your ideas to life.
+                Whether you're just starting or already have some
+                skills, we offer two ways to help you succeed:
+
+                <br><br>1.&nbsp;<strong><U>Learn New Skills</U></strong><br>
+                If you're new to something like 3D printing or audio recording, you can sign up for our classes. These
+                classes will teach you everything you need to know so you can start creating right away.
+
+                <br><br>2.&nbsp;<strong><U>Use Our Tools</U></strong><br>
+                Once you've learned the skills, you can become a member and use our equipment, like 3D printers, audio
+                rooms, drones, and more, whenever you need them. Already have experience? You can take a quick skills
+                check, and if you pass, you're ready to use the equipment!
+
+                <br><br>Our goal is to give you the tools and skills to create amazing things!
+            </p>
         </section>
-        <section class="vehicles">
-            <div class="vehicles-headline">
-                <h2>BOOK A SERVICE</h2>
+
+        <!-- <div class="hero">
+            <picture>
+                <source srcset="images/slc-skyline-small.webp" media="(max-width: 480px)">
+                <source srcset="images/slc-skyline-medium.webp" media="(max-width: 1280px)">
+                <img src="images/slc-skyline-large.webp" alt="Salt_Lake_City_Skyline" width="1280" height="853">
+            </picture>
+        </div> -->
+        <section class="membership-benefits">
+            <div class="membership-headline">
+                <h2>Membership Benefits</h2>
                 <hr>
             </div>
-            <div class="scooters-container">
-                <img src="images/scooter-beach.webp" width="325" height="217" alt="Couple on a scooter near the beach"
-                    loading="lazy">
-                <h3>Scooter Rental</h3>
-                <p>Multiple scooters to choose from!</p>
-                <p>Half day (3 hrs), full day (24 hrs) and multi-day rentals</p>
-                <a href="rentals.html">More info...</a>
+            <div class="benefits-spotlight">
+                <img src="images/spotlight.webp" width="100" height="100" alt="Spotlight">
+                <h3>Business Spotlight</h3>
+                <p>In addition to our ribbon cutting ceremonies, every month we highlight a business member of the
+                    chamber.
+                </p>
             </div>
-            <div class="atvs-container">
-                <img src="images/atvtour.webp" width="328" height="219" alt="ATV tour with side by sides in jungle"
-                    loading="lazy">
-                <h3>ATV Rental</h3>
-                <p>Honda Pioneer 1000</p>
-                <p>Half day (3 hrs), full day (24 hrs) and multi-day rentals</p>
-                <a href="rentals.html">More info...</a>
+            <div class="benefits-advertising">
+                <img src="images/megaphone.webp" width="100" height="100" alt="Megaphone">
+                <h3>Website Advertising</h3>
+                <p>From out weekly Meet & Greets, to our monthly luncheons, to our website, we have multiple
+                    different channels we can use to advertise your business.
+                </p>
             </div>
-            <div class="jeeps-container">
-                <img src="images/jeep-cozumel.webp" width="325" height="219" alt="Jeep on the road in Cozumel"
-                    loading="lazy">
-                <h3>Jeep Rental</h3>
-                <p>Jeep Wrangler 2 door or 4 door with a/c</p>
-                <p>Half day (3 hrs), full day (24 hrs) and multi-day rentals</p>
-                <a href="rentals.html">More info...</a>
+            <div class="benefits-connect">
+                <img src="images/handshake.webp" width="100" height="100" alt="Handshake icon">
+                <h3>Connect</h3>
+                <p>As a member of the chamber you will have opportunities to connect with other business leaders and
+                    access to special resources that can help you improve your business.</p>
             </div>
-            <div class="jetski-container">
-                <img src="images/jetski.webp" width="325" height="223" alt="Father and son on jet ski" loading="lazy">
-                <h3>Jet Ski Rental</h3>
-                <p>Yamaha EX or VX Waverunner or Sea Doo GTI</p>
-                <p>Half day (3 hrs), full day (24 hrs) and multi-day rentals</p>
-                <a href="rentals.html">More info...</a>
-            </div>
-            <div class="jeep-tour-container">
-                <img src="images/punta-sur-tour.webp" width="325" height="219"
-                    alt="Jeeps driving along the coast to Punta Sur park in Cozumel" loading="lazy">
-                <h3>Jeep / ATV Tour</h3>
-                <p>Adventure awaits! We'll take you on an unforgettable tour of the island!</p>
-                <p>Departs daily from our main location (Calle 7 Sur 97, Centro)</p>
-                <a href="rentals.html">More info...</a>
-            </div>
-            <div class="cenote-container">
-                <img src="images/cenotes.webp" width="325" height="223" alt="Inside a cenote with clear blue lake"
-                    loading="lazy">
-                <h3>Cenotes and Jungle Tour</h3>
-                <p>Explore the jungle and then take a relaxing plunge in these underground wonders!</p>
-                <p>Includes hotel pickup and drop-off.</p>
-                <a href="rentals.html">More info...</a>
-            </div>
-            <div class="button-container">
-                <a class="button" href="reservations.html">BOOK NOW</a>
-            </div>
+            <a class="button" href="join.html">Become A Member</a>
         </section>
-        <div class="wave-background">
-            <div class="wave-design-layer-4">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
+        <section class="weather-events-container">
+            <div class="events">
+                <h2>Events</h2>
+                <hr>
+                <h3>Ribbon Cutting - Ristorante Bellissimo</h3>
+                <p>Join us for the grand opening of Ristorante Bellissimo, Thursday at 1:00pm <a href="">more
+                        info...</a></p>
             </div>
-            <div class="wave-design-layer-5">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div>
-            <div class="wave-design-layer-6">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div>
-        </div>
-        <div class="weather-container">
             <div class="weather">
+                <h2>Weather</h2>
+                <hr>
                 <div class="current-weather">
                     <strong id="current-month-day"></strong>
                     <img id="current-weather-icon" src="#" alt="Weather icon">
@@ -170,7 +125,7 @@
                     <div class="current-temp-low">L: <span id="current-temp-low"></span></div>
                     <div class="current-temp-high">H: <span id="current-temp-high"></span></div>
                     <div class="current-windspeed">Wind: <span id="current-wind-speed"></span></div>
-                    <div class="current-humidity">Humidity: <span id="current-humidity"></span></div>
+                    <div class="current-wind-chill"><span id="current-wind-chill"></span></div>
                 </div>
                 <div class="tomorrow-weather">
                     <strong id="tomorrow-month-day"></strong>
@@ -182,7 +137,7 @@
                     <div class="tomorrow-temp-low">L: <span id="tomorrow-temp-low"></span></div>
                     <div class="tomorrow-temp-high">H: <span id="tomorrow-temp-high"></span></div>
                     <div class="tomorrow-windspeed">Wind: <span id="tomorrow-wind-speed"></span></div>
-                    <div class="tomorrow-humidity">Humidity: <span id="tomorrow-humidity"></span></div>
+                    <div class="tomorrow-wind-chill"><span id="tomorrow-wind-chill"></span></div>
                 </div>
                 <div class="day-after-tomorrow-weather">
                     <strong id="day-after-tomorrow-month-day"></strong>
@@ -195,11 +150,16 @@
                     <div class="day-after-tomorrow-temp-high">H: <span id="day-after-tomorrow-temp-high"></span></div>
                     <div class="day-after-tomorrow-windspeed">Wind: <span id="day-after-tomorrow-wind-speed"></span>
                     </div>
-                    <div class="day-after-tomorrow-humidity">Humidity: <span id="day-after-tomorrow-humidity"></span>
+                    <div class="day-after-tomorrow-wind-chill"><span id="day-after-tomorrow-wind-chill"></span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section class="spotlight">
+            <h2>Business Spotlight</h2>
+            <hr>
+            <article class="membersGrid" aria-label="Directory of Members"></article>
+        </section>
     </main>
     <footer>
         <div class="contact-info">
