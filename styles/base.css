@@ -54,6 +54,7 @@ header {
     justify-content: space-between;
     padding: 10px;
     /* background-color: #2F3061; */
+    background-color: #2F3061;
 }
 
 header img {
@@ -65,7 +66,7 @@ header h1 {
     display: inline-block;
     justify-items: center;
     text-align: center;
-    color: #000;
+    color: #CFE6FF;
 }
 
 #menu {
@@ -84,7 +85,7 @@ header h1 {
     position: absolute;
     top: 20px;
     right: 15px;
-    color: #000;
+    color: #CFE6FF;
 }
 
 nav {
@@ -154,7 +155,13 @@ ul {
 }
 
 .description p,
-.classes p {
+.classes p,
+.makerspace p,
+.careers p {
+    padding: 20px;
+}
+
+.button-container {
     padding: 20px;
 }
 
