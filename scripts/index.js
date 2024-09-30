@@ -15,15 +15,13 @@ document.getElementById('currentYear').textContent = new Date().getFullYear();
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Hamburger navigation button and nav element
-    const hambutton = document.querySelector('#menu');
+    const menuButton = document.getElementById('menu');
     const nav = document.querySelector('nav');
 
-    // Add a click event listener to the hamburger button
-    hambutton.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent the default anchor click behavior
-        nav.classList.toggle('show'); // Toggle the 'show' class on the nav
-        console.log(nav.classList.contains('show')); // Log to check if nav is shown
+    menuButton.addEventListener('click', () => {
+        nav.classList.toggle('show'); // Show/hide the navigation
+        menuButton.classList.toggle('show'); // Toggle the menu button's show class
     });
+
 });
 
