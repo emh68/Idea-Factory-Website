@@ -198,7 +198,8 @@ p.goal,
     z-index: 2;
 } */
 
-.skills p {
+.skills p,
+.tools p {
     padding: 20px;
     position: relative;
     z-index: 3;
