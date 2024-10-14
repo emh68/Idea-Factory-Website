@@ -40,23 +40,40 @@
     </nav>
 
     <main>
-        <form id="registrationForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="registration">
+            <form id="registrationForm" action="thankyou.html" method="get">
+                <fieldset>
+                    <legend>User Information</legend>
+                    <label for="fname">First Name*</label>
+                    <input type="text" id="fname" name="fname" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                    <label for="lname">Last Name*</label>
+                    <input type="text" id="lname" name="lname" required>
 
-            <label for="class">Select Class:</label>
-            <select id="class" name="class">
-                <option value="python-beginner">Python Beginner</option>
-                <option value="3d-printing">3D Printing</option>
-                <option value="arduino-basics">Arduino Basics</option>
-                <!-- Add other class options here -->
-            </select>
+                    <label for="age">Age*</label>
+                    <input type="number" id="age" name="age" required min="12" max="16" required>
 
-            <button type="submit">Register</button>
-        </form>
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" placeholder="i.e. 3258954450" required>
+
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" placeholder="someone@gmail.com" required>
+                </fieldset>
+
+                <fieldset>
+                    <label for="class">Select Class:</label>
+                    <select id="class" name="class">
+                        <option value="python-beginner">Python Beginner</option>
+                        <option value="basic-circuits">Basic Circuits</option>
+                        <option value="3d-printing">3D Printing</option>
+                        <option value="arduino-basics">Arduino Basics</option>
+                        <!-- Add other class options here -->
+                    </select>
+                </fieldset>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
         <div id="responseMessage"></div>
 
 
