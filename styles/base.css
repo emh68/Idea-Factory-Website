@@ -396,9 +396,9 @@ form fieldset {
     max-width: 100%;
     width: 600px;
     border: 2px solid #000000;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 20px;
-    background-color: #c1daff;
+    background-color: #e2eeff;
 }
 
 form legend {
@@ -411,12 +411,26 @@ form label {
     padding-top: 1rem;
 }
 
-form label input {
+form input {
     display: block;
     font-size: 1rem;
     border-radius: 4px;
-    padding: .75rem;
+    padding: .3rem;
     width: 100%;
     max-width: 20rem;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+}
+
+#class {
+    padding: .4rem;
+}
+
+#registerButton {
+    padding: 5px;
+    /* border: 1.5px solid #000; */
+    border-radius: 7px;
+    margin-left: 20px;
+    background-color: #150E60;
+    color: #4ed19f;
+    width: 150px;
 }

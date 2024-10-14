@@ -42,65 +42,12 @@
     </nav>
 
     <main>
-        <div class="registration">
-            <form id="registrationForm" action="thankyou.html" method="get">
-                <fieldset>
-                    <legend>User Information</legend>
-                    <label for="fname">First Name*</label>
-                    <input type="text" id="fname" name="fname" required>
-
-                    <label for="lname">Last Name*</label>
-                    <input type="text" id="lname" name="lname" required>
-
-                    <label for="age">Age*</label>
-                    <input type="number" id="age" name="age" required min="12" max="16" required>
-
-                    <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" name="phone" placeholder="i.e. 3258954450" required>
-
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" placeholder="someone@gmail.com" required>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Class Registration</legend>
-                    <label for="class">Select Class:</label>
-                    <select id="class" name="class">
-                        <option value="python-beginner">Python (Beginner Age 12-16)</option>
-                        <option value="python-beginner" disabled="true">Python (Intermediate Age 12-16)</option>
-                        <option value="python-beginner" disabled="true">Python (Advanced Age 12-16)</option>
-                        <option value="arduino-basics" disabled="true">Web Development I (Beginner)</option>
-                        <option value="arduino-basics" disabled="true">Web Development II (Intermediate)</option>
-                        <option value="arduino-basics" disabled="true">Web Development III (Advanced)</option>
-                        <option value="python-beginner">Electronic Circuits I (Beginner)</option>
-                        <option value="basic-circuits" disabled="true">Electronic Circuits II (Intermediate)</option>
-                        <option value="basic-circuits" disabled="true">Electronic Circuits I (Advanced)</option>
-                        <option value="3d-printing" disabled="true">3D Printing I (Beginner)</option>
-                        <option value="3d-printing" disabled="true">3D Printing II (Intermediate)</option>
-                        <option value="3d-printing" disabled="true">3D Printing III (Advanced)</option>
-                        <option value="arduino-basics" disabled="true">Arduino I (Beginner)</option>
-                        <option value="arduino-basics" disabled="true">Arduino II (Intermediate)</option>
-                        <option value="arduino-basics" disabled="true">Arduino III (Advanced)</option>
-                        <option value="arduino-basics" disabled="true">Raspberry Pi I (Beginner)</option>
-                        <option value="arduino-basics" disabled="true">Raspberry Pi II (Intermediate)</option>
-                        <option value="arduino-basics" disabled="true">Raspberry Pi III (Advanced)</option>
-                        <!-- Add other class options here -->
-                    </select>
-
-
-                    <button type="submit" id="registerButton">Register</button>
-                </fieldset>
-            </form>
-        </div>
+        <h1>Payment</h1>
+        <button id="payButton">Pay Now</button>
         <div id="responseMessage"></div>
 
-
     </main>
-    <iframe
-        src="
-        https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11512.465532012127!2d-111.77880601349058!3d43.8326798042317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53540a446514a5ab%3A0xdd6718466cf89c6b!2sTeton%20River%20Business%20Center!5e0!3m2!1sen!2sus!4v1727652387094!5m2!1sen!2sus"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0">
-    </iframe>
+
     <footer>
         <div class="footer-container">
             <div class="footer-column">
@@ -154,6 +101,8 @@
         </div>
     </footer>
     <script src="scripts/index.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="payment.js" defer></script> <!-- Include your JS file -->
 </body>
 
 </html>
