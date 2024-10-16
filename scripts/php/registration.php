@@ -72,7 +72,7 @@ $stmt->bind_param("ssisss", $fname, $lname, $age, $phone, $email, $class);
 
 if ($stmt->execute()) {
     // Redirect to success page upon successful registration
-    header('Location: success.php');
+    header('Location: success.html');
     exit();
 
 } else {
