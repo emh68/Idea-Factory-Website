@@ -67,52 +67,54 @@ $phone = $conn->real_escape_string(trim($phone));
 $email = $conn->real_escape_string(trim($email));
 $class = $conn->real_escape_string(trim($class));
 
-// Check class availability
-$class_query = $conn->prepare("SELECT COUNT(*) FROM registrations WHERE class = ? AND status = 'Enrolled'");
-$class_query->bind_param("s", $class);
-$class_query->execute();
-$class_query->bind_result($enrolled_count);
-$class_query->fetch();
-$class_query->close();
+// Check the number of current registrations for the selected class
+$query = "SELECT COUNT(*) AS count FROM registrations WHERE class = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $class);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$current_count = $row['count'];
 
-if ($enrolled_count >= 10) {
-    // Insert user into the waiting list with created_at timestamp
-    $timestamp = date('Y-m-d H:i:s'); // Current timestamp
+// Current timestamp for created_at
+$timestamp = date('Y-m-d H:i:s');
 
-    $stmt_waiting = $conn->prepare("INSERT INTO waiting_list (fname, lname, age, phone, email, class, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt_waiting->bind_param("ssissss", $fname, $lname, $age, $phone, $email, $class, $timestamp); // Bind the timestamp as the last parameter
+// If there are less than 10 registrations, add to the registrations table
+if ($current_count < 10) {
+    // Insert user information with "Pending" status
+    $status = 'Pending';
+    $insert_query = "INSERT INTO registrations (fname, lname, age, phone, email, class, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $insert_stmt = $conn->prepare($insert_query);
+    $insert_stmt->bind_param("ssisssss", $fname, $lname, $age, $phone, $email, $class, $status, $timestamp);
 
-    if ($stmt_waiting->execute()) {
-        echo "Class is full. You have been added to the waiting list.";
-        $stmt_waiting->close();
-        $conn->close(); // Close the database connection
-        exit; // Stop further processing if added to waiting list
+    if ($insert_stmt->execute()) {
+        // Get the user ID of the newly created record
+        $user_id = $insert_stmt->insert_id;
+
+        // Redirect to payment page with user ID as a query parameter
+        // header("Location: /payment.php?user_id=$user_id");
+        header("Location: /success.html");
+        exit();
+    } else {
+        echo "Error in registration: " . $insert_stmt->error;
     }
-}
-
-// Insert user information with "Pending" status
-$status = 'Pending';
-$timestamp = date('Y-m-d H:i:s'); // Current timestamp
-
-$stmt = $conn->prepare("INSERT INTO registrations (fname, lname, age, phone, email, class, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssisssss", $fname, $lname, $age, $phone, $email, $class, $status, $timestamp);
-
-if ($stmt->execute()) {
-    // Get the user ID of the newly created record
-    $user_id = $stmt->insert_id;
-
-    // Redirect to payment page with user ID as a query parameter
-    // header("Location: /payment.php?user_id=$user_id");
-    // exit();
-    header("Location: /success.html");
-    exit();
 } else {
-    echo "Error: " . $stmt->error; // Output error if execution fails
+    // If 10 or more registrations, add to waiting list
+    $wait_query = "INSERT INTO waiting_list (fname, lname, age, phone, email, class, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $wait_stmt = $conn->prepare($wait_query);
+    $wait_stmt->bind_param("ssissss", $fname, $lname, $age, $phone, $email, $class, $timestamp);
+
+    if ($wait_stmt->execute()) {
+        echo "Class is full. You have been added to the waiting list.";
+    } else {
+        echo "Error adding to waiting list: " . $wait_stmt->error;
+    }
 }
 
 $stmt->close();
 $conn->close(); // Close the database connection
 ?>
+
 
 
 
