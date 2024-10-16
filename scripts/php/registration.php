@@ -67,6 +67,9 @@ $phone = $conn->real_escape_string(trim($phone));
 $email = $conn->real_escape_string(trim($email));
 $class = $conn->real_escape_string(trim($class));
 
+// Current timestamp for created_at
+$timestamp = date('Y-m-d H:i:s');
+
 // Check the number of current registrations for the selected class
 $query = "SELECT COUNT(*) AS count FROM registrations WHERE class = ?";
 $stmt = $conn->prepare($query);
@@ -75,9 +78,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 $current_count = $row['count'];
-
-// Current timestamp for created_at
-$timestamp = date('Y-m-d H:i:s');
 
 // If there are less than 10 registrations, add to the registrations table
 if ($current_count < 10) {
@@ -88,12 +88,8 @@ if ($current_count < 10) {
     $insert_stmt->bind_param("ssisssss", $fname, $lname, $age, $phone, $email, $class, $status, $timestamp);
 
     if ($insert_stmt->execute()) {
-        // Get the user ID of the newly created record
-        $user_id = $insert_stmt->insert_id;
-
-        // Redirect to payment page with user ID as a query parameter
-        // header("Location: /payment.php?user_id=$user_id");
-        header("Location: /success.html");
+        // Redirect to results.html with a success message
+        header("Location: /results.html?message=" . urlencode("You are successfully registered for $class."));
         exit();
     } else {
         echo "Error in registration: " . $insert_stmt->error;
@@ -105,7 +101,9 @@ if ($current_count < 10) {
     $wait_stmt->bind_param("ssissss", $fname, $lname, $age, $phone, $email, $class, $timestamp);
 
     if ($wait_stmt->execute()) {
-        echo "Class is full. You have been added to the waiting list.";
+        // Redirect to results.html with a waiting list message
+        header("Location: /results.html?message=" . urlencode("The class is full. You have been added to the waiting list."));
+        exit();
     } else {
         echo "Error adding to waiting list: " . $wait_stmt->error;
     }
