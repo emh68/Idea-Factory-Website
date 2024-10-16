@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-$conn = new mysqli('localhost', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
+$conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
 
 // Check connection
 if ($conn->connect_error) {
