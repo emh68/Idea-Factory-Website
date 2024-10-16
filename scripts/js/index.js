@@ -25,3 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+document.querySelectorAll('#registrationForm input').forEach(input => {
+    input.addEventListener('input', function () {
+        if (this.validity.valid) {
+            // Clear error message or apply success styles
+        } else {
+            // Display error message or apply error styles
+        }
+    });
+});
