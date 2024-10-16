@@ -87,8 +87,8 @@ if ($enrolled_count >= 10) {
         $stmt_waiting->close();
         $conn->close(); // Close the database connection
         exit; // Stop further processing if added to waiting list
+    }
 }
-
 
 // Insert user information with "Pending" status
 $status = 'Pending';
