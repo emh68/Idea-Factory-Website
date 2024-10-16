@@ -76,17 +76,19 @@ $class_query->fetch();
 $class_query->close();
 
 if ($enrolled_count >= 10) {
-    // Insert user into the waiting list
-    $stmt_waiting = $conn->prepare("INSERT INTO waiting_list (fname, lname, age, phone, email, class) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt_waiting->bind_param("ssisss", $fname, $lname, $age, $phone, $email, $class);
+    // Insert user into the waiting list with created_at timestamp
+    $timestamp = date('Y-m-d H:i:s'); // Current timestamp
+
+    $stmt_waiting = $conn->prepare("INSERT INTO waiting_list (fname, lname, age, phone, email, class, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt_waiting->bind_param("ssissss", $fname, $lname, $age, $phone, $email, $class, $timestamp); // Bind the timestamp as the last parameter
 
     if ($stmt_waiting->execute()) {
         echo "Class is full. You have been added to the waiting list.";
         $stmt_waiting->close();
         $conn->close(); // Close the database connection
         exit; // Stop further processing if added to waiting list
-    }
 }
+
 
 // Insert user information with "Pending" status
 $status = 'Pending';
