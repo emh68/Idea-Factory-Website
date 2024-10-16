@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
 
@@ -75,10 +71,10 @@ $stmt = $conn->prepare("INSERT INTO registrations (fname, lname, age, phone, ema
 $stmt->bind_param("ssisss", $fname, $lname, $age, $phone, $email, $class);
 
 if ($stmt->execute()) {
-    echo "Registration successful!";
-    // Optional: Redirect to a success page
-    // header('Location: success.php');
-    // exit();
+    // Redirect to success page upon successful registration
+    header('Location: ../success.html');
+    exit();
+
 } else {
     echo "Error: " . $stmt->error; // Output error if execution fails
 }
