@@ -102,7 +102,9 @@ if ($stmt->execute()) {
     $user_id = $stmt->insert_id;
 
     // Redirect to payment page with user ID as a query parameter
-    header("Location: /payment.php?user_id=$user_id");
+    // header("Location: /payment.php?user_id=$user_id");
+    // exit();
+    header("Location: /success.html");
     exit();
 } else {
     echo "Error: " . $stmt->error; // Output error if execution fails
