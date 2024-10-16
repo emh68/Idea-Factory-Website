@@ -1,5 +1,9 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
 
 // Check connection
@@ -81,8 +85,6 @@ if ($enrolled_count >= 10) {
         $stmt_waiting->close();
         $conn->close(); // Close the database connection
         exit; // Stop further processing if added to waiting list
-    } else {
-        echo "Error adding to waiting list: " . $stmt_waiting->error;
     }
 }
 
@@ -107,6 +109,7 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close(); // Close the database connection
 ?>
+
 
 
 
