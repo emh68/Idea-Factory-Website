@@ -45,8 +45,7 @@
         <?php
             session_start();
             if (isset($_SESSION['message'])) {
-                echo '<div id="message">' . $_SESSION['message'] . '</div>';
-                // echo '<div id="message" style="margin: 0; padding: 20px; text-align: center;">' . $_SESSION['message'] . '</div>';
+                echo '<div id="message" style="margin: 0; padding: 20px; text-align: center;">' . $_SESSION['message'] . '</div>';
                 unset($_SESSION['message']); // Clear the message after displaying
             }
         ?>
