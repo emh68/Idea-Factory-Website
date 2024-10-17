@@ -434,9 +434,3 @@ form input {
     color: #4ed19f;
     width: 150px;
 }
-
-main #message {
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-}
