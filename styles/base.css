@@ -435,7 +435,7 @@ form input {
     width: 150px;
 }
 
-main #message {
+#message {
     margin: 0;
     padding: 20px;
     text-align: center;
