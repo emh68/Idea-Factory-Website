@@ -42,15 +42,13 @@
     </nav>
 
     <main>
-
-        <div id="message"></div>
         <?php
             session_start();
             if (isset($_SESSION['message'])) {
-                echo $_SESSION['message'];
+                echo '<div id="message">' . $_SESSION['message'] . '</div>';
                 unset($_SESSION['message']); // Clear the message after displaying
             }
-            ?>
+        ?>
     </main>
 
     <footer>
