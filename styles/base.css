@@ -437,4 +437,6 @@ form input {
 
 #message {
     margin: 0;
+    padding: 20px;
+    text-align: center;
 }
