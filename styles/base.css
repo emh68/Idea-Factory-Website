@@ -434,3 +434,7 @@ form input {
     color: #4ed19f;
     width: 150px;
 }
+
+#message {
+    margin: 0;
+}
