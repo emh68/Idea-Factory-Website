@@ -106,11 +106,11 @@ if ($current_count < 10) {
 
     if ($wait_stmt->execute()) {
         $_SESSION['message'] = "The class is full. You have been added to the waiting list.";
-        header("Location: /php/results.php");
+        header("Location: /scripts/php/results.php");
         exit();
     } else {
         $_SESSION['message'] = "Error adding to waiting list.";
-        header("Location: /php/results.php");
+        header("Location: /scripts/php/results.php");
         exit();
     }
 }
