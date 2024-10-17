@@ -7,12 +7,12 @@
     <meta name="author" content="Eli Hansen">
     <meta name="description" content="Website for makerspace Idea Factory">
     <link rel="icon" href="images/ideafactory.ico">
-    <link rel="stylesheet" href="../styles/fonts/stylesheet.css">
-    <link rel="stylesheet" href="../styles/normalize.css">
-    <link rel="stylesheet" href="../styles/base.css">
-    <link rel="stylesheet" href="../styles/medium.css">
-    <link rel="stylesheet" href="../styles/larger.css">
-    <link rel="stylesheet" href="../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../../styles/fonts/stylesheet.css">
+    <link rel="stylesheet" href="../../styles/normalize.css">
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="../../styles/medium.css">
+    <link rel="stylesheet" href="../../styles/larger.css">
+    <link rel="stylesheet" href="../../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta property="og:title" content="The Idea Factory">
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        <a href="index.html"><img src="../images/Screenshot 2024-09-24 133532.png" width="50px" height="50px" alt=""></a>
+        <a href="index.html"><img src="../../images/Screenshot 2024-09-24 133532.png" width="50px" height="50px" alt=""></a>
         <a href="index.html">
             <h1>IDEA FACTORY</h1>
         </a>
