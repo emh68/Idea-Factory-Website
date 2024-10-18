@@ -42,8 +42,10 @@ $session = $stripe->checkout->sessions->create([
     'metadata' => [
         'first_name' => $firstName,
         'last_name' => $lastName,
-        'age' => $age, 
-        'class' => $selectedClass,
+        'age' => $age,
+        'class' => $className,
+        'email' => $email,
+        'registration_id' => $registrationId, // Unique identifier for registration
     ],
 ]);
 
