@@ -17,8 +17,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 //     die('Stripe secret key is not set or is empty.');
 // }
 
-// Specify the path to your .env file
-$dotenvPath = __DIR__ . '/../../.env'; 
+// Use the absolute path to your .env file
+$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env'; // Update this with your actual path
+
 if (!file_exists($dotenvPath)) {
     die('The .env file does not exist at ' . $dotenvPath);
 }
