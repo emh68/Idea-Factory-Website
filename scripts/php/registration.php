@@ -95,6 +95,7 @@ if ($current_count < 10) {
         $_SESSION['first_name'] = $fname;
         $_SESSION['last_name'] = $lname;
         $_SESSION['age'] = $age;
+        $_SESSION['registrationId'] = $registrationId;
 
         // Redirect to payment page
         header("Location: /scripts/php/payment.php");
