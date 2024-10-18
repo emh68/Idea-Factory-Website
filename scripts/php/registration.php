@@ -93,6 +93,8 @@ if ($current_count < 10) {
         $_SESSION['selected_class'] = $class;
         $_SESSION['email'] = $email;
         $_SESSION['first_name'] = $fname;
+        $_SESSION['last_name'] = $lname;
+        $_SESSION['age'] = $age;
 
         // Redirect to payment page
         header("Location: /scripts/php/payment.php");

@@ -21,6 +21,7 @@ $stripe = new \Stripe\StripeClient($stripeSecretKey);
 $selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class';
 $firstName = $_SESSION['first_name'] ?? 'Student';
 $lastName = $_SESSION['last_name'] ?? 'User'; // Assuming last name is stored
+$age = $_SESSION['age'] ?? '0';
 
 // Create Stripe Checkout session
 $session = $stripe->checkout->sessions->create([
@@ -48,6 +49,8 @@ $session = $stripe->checkout->sessions->create([
 if ($session) {
     $_SESSION['message'] = 'registered';
     $_SESSION['first_name'] = $firstName;
+    $_SESSION['last_name'] = $lastName;
+    $_SESSION['age'] = $age;
     $_SESSION['selected_class'] = $selectedClass;
 
     header('Location: ' . $session->url);
