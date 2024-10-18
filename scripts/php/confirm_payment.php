@@ -1,4 +1,4 @@
-<?php
+
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -61,4 +61,4 @@ if ($session->payment_status === 'paid') {
 // Redirect to results page
 header("Location: /scripts/php/results.php");
 exit();
-?>
+
