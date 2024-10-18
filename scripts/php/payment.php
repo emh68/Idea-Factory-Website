@@ -27,8 +27,8 @@ $session = $stripe->checkout->sessions->create([
         'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => 'http://ideafactoryrexburg.com/php/success.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'http://ideafactoryrexburg.com/classes.html',
+    'success_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'http://ideafactoryrexburg.com/scripts/php/results.html',
 ]);
 
 header('Location: ' . $session->url);
