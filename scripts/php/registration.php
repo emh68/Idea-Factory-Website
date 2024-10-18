@@ -56,7 +56,7 @@ if (empty($class)) {
 // Handle errors
 if (!empty($errors)) {
     $_SESSION['message'] = implode("<br>", $errors);
-    header("Location: /results.html");
+    // header("Location: /results.html"); need do adjust
     exit();
 }
 
