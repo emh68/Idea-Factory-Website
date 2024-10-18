@@ -94,7 +94,7 @@ if ($current_count < 10) {
         $_SESSION['email'] = $email;
 
         // Redirect to payment page
-        header("Location: /payment.php");
+        header("Location: /scripts/php/payment.php");
         exit();
     } else {
         $_SESSION['message'] = "Error in registration.";
