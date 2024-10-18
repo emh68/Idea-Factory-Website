@@ -27,6 +27,7 @@ $stripe = new \Stripe\StripeClient($stripeSecretKey);
 // Fetch class and email from session
 $selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class'; // Default value if not set
 $email = $_SESSION['email'] ?? 'unknown@example.com'; // Default value if not set
+$firstName = $_SESSION['first_name'] ?? 'Student';
 
 // Create Stripe Checkout session
 $session = $stripe->checkout->sessions->create([
@@ -44,6 +45,11 @@ $session = $stripe->checkout->sessions->create([
     'mode' => 'payment',
     'success_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
     'cancel_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php',
+    'metadata' => [
+        'email' => $email,
+        'class' => $selectedClass,
+        'first_name' => $firstName,
+    ],
 ]);
 
 header('Location: ' . $session->url);
