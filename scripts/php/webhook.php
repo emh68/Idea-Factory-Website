@@ -1,5 +1,6 @@
 <?php
-require 'vendor/autoload.php';
+// Use this to include the Stripe PHP library
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
