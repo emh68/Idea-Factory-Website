@@ -7,6 +7,10 @@ session_start();
 // require 'vendor/autoload.php'; // Include Stripe PHP library
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
+$stripeSecretKey = getenv('STRIPE_SECRET_KEY');
+if (!$stripeSecretKey) {
+    die('Stripe secret key is not set or is empty.');
+}
 
 // Initialize Stripe Client with your live secret key
 $stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
