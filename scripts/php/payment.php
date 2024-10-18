@@ -4,38 +4,31 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-// require 'vendor/autoload.php'; // Include Stripe PHP library
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-// // Load .env file if you're using vlucas/phpdotenv
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__); // Corrected to point to the current directory
-// $dotenv->load();
-// var_dump(getenv('STRIPE_SECRET_KEY')); // Debug line
-
-// $stripeSecretKey = getenv('STRIPE_SECRET_KEY');
-// if (!$stripeSecretKey) {
-//     die('Stripe secret key is not set or is empty.');
-// }
-
 // Use the absolute path to your .env file
-$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env'; // Update this with your actual path
+$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
 
-var_dump(__DIR__); 
+// Debug: Verify the path and directory contents
+var_dump(__DIR__);
 var_dump(scandir(dirname($dotenvPath))); 
 
 if (!file_exists($dotenvPath)) {
     die('The .env file does not exist at ' . $dotenvPath);
 }
 
-// Load .env file
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+// Load .env file from the correct directory
+$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath)); // Load from the directory of .env
 try {
     $dotenv->load();
 } catch (Exception $e) {
     die('Failed to load .env file: ' . $e->getMessage());
 }
 
-// Get the Stripe secret key from the environment variable
+// Check all loaded environment variables
+print_r($_ENV);
+
+// Retrieve the Stripe secret key from the environment variable
 $stripeSecretKey = getenv('STRIPE_SECRET_KEY');
 var_dump($stripeSecretKey); // Debug line to see the value of the key
 
@@ -43,8 +36,8 @@ if (!$stripeSecretKey) {
     die('Stripe secret key is not set or is empty.');
 }
 
-// Initialize Stripe Client with your live secret key
-$stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
+// Initialize Stripe Client
+$stripe = new \Stripe\StripeClient($stripeSecretKey);
 
 // Fetch class and email from session
 $selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class'; // Default value if not set
