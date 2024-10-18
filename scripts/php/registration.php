@@ -1,58 +1,5 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
-// Database connection
-$conn = new mysqli('107.180.118.249', 'Eli Hansen', 'Bri@rwood2()', 'idea_factory');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Assuming a form submission with POST method
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Validate and sanitize inputs
-    $firstName = htmlspecialchars(trim($_POST['first_name']));
-    $lastName = htmlspecialchars(trim($_POST['last_name']));
-    $selectedClass = htmlspecialchars(trim($_POST['class']));
-
-    // Set session variables
-    $_SESSION['first_name'] = $firstName;
-    $_SESSION['last_name'] = $lastName;
-    $_SESSION['selected_class'] = $selectedClass;
-
-    // Insert registration into the database
-    $insertQuery = "INSERT INTO registrations (fname, lname, class, status) VALUES (?, ?, ?, 'Pending')";
-    $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("sss", $firstName, $lastName, $selectedClass);
-    
-    if ($stmt->execute()) {
-        // Redirect to payment page
-        header("Location: payment.php");
-        exit();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-}
-
-$conn->close();
-?>
-
-<!-- Registration Form HTML -->
-<form method="POST" action="">
-    <input type="text" name="first_name" placeholder="First Name" required>
-    <input type="text" name="last_name" placeholder="Last Name" required>
-    <select name="class" required>
-        <option value="Python 101">Python 101</option>
-        <option value="Basic Circuits">Basic Circuits</option>
-    </select>
-    <button type="submit">Register</button>
-</form>
-
-
-
-
-
-session_start();
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
@@ -175,3 +122,4 @@ if ($current_count < 10) {
 // Close connections
 $stmt->close();
 $conn->close();
+?>
