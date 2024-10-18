@@ -40,9 +40,10 @@ $session = $stripe->checkout->sessions->create([
     'success_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
     'cancel_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php',
     'metadata' => [
-        'class' => $selectedClass,
         'first_name' => $firstName,
-        'last_name' => $lastName, // Store last name too
+        'last_name' => $lastName,
+        'age' => $age, 
+        'class' => $selectedClass,
     ],
 ]);
 
