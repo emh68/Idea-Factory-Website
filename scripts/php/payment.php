@@ -8,7 +8,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 // Load .env file if you're using vlucas/phpdotenv
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__)); // Corrected path
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); // Move up to the scripts directory
 $dotenv->load();
 
 $stripeSecretKey = getenv('STRIPE_SECRET_KEY');
