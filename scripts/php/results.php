@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../styles/base.css">
     <link rel="stylesheet" href="../../styles/medium.css">
     <link rel="stylesheet" href="../../styles/larger.css">
-    <link rel="stylesheet" href="../../https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta property="og:title" content="The Idea Factory">
     <meta property="og:type" content="website">
     <meta property="og:image" content="">
