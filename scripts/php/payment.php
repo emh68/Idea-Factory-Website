@@ -23,6 +23,7 @@ $firstName = $_SESSION['first_name'] ?? 'Student';
 $lastName = $_SESSION['last_name'] ?? 'User'; // Assuming last name is stored
 $age = $_SESSION['age'] ?? '0';
 $registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
+$email = $_SESSION['email'] ?? 'unknown@example.com'; // Ensure this variable is fetched
 
 // Create Stripe Checkout session
 $session = $stripe->checkout->sessions->create([
@@ -44,7 +45,7 @@ $session = $stripe->checkout->sessions->create([
         'first_name' => $firstName,
         'last_name' => $lastName,
         'age' => $age,
-        'class' => $className,
+        'class' => $selectedClass,
         'email' => $email,
         'registration_id' => $registrationId, // Unique identifier for registration
     ],

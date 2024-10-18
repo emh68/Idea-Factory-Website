@@ -26,6 +26,71 @@ try {
 if ($event->type == 'checkout.session.completed') {
     $session = $event->data->object;
 
+    // Retrieve the metadata
+    $firstName = $session->metadata->first_name;
+    $lastName = $session->metadata->last_name;
+    $age = $session->metadata->age;
+    $selectedClass = $session->metadata->class;
+    $email = $session->metadata->email;
+    $registrationId = $session->metadata->registration_id;
+
+    // Database connection
+    $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
+    if ($conn->connect_error) {
+        error_log("Database connection failed: " . $conn->connect_error);
+        exit();
+    }
+
+    // Update registration status to "Registered" instead of "Enrolled"
+    $query = "UPDATE registrations SET status = 'Registered' WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $registrationId);
+    
+    if ($stmt->execute()) {
+        error_log("Registration updated successfully for $firstName $lastName.");
+    } else {
+        error_log("Error updating registration: " . $stmt->error);
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+
+http_response_code(200);
+?>
+
+
+
+
+
+
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+$payload = @file_get_contents('php://input');
+$sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
+$endpoint_secret = $_ENV['STRIPE_SIGNING_SECRET'];
+$event = null;
+
+try {
+    $event = \Stripe\Webhook::constructEvent($payload, $sig_header, $endpoint_secret);
+} catch (\UnexpectedValueException $e) {
+    http_response_code(400);
+    error_log('Invalid payload: ' . $e->getMessage());
+    exit();
+} catch (\Stripe\Exception\SignatureVerificationException $e) {
+    http_response_code(400);
+    error_log('Invalid signature: ' . $e->getMessage());
+    exit();
+}
+
+if ($event->type == 'checkout.session.completed') {
+    $session = $event->data->object;
+
     // Retrieve the metadata from the session
     $firstName = $session->metadata->first_name ?? null;
     $lastName = $session->metadata->last_name ?? null;
@@ -64,7 +129,7 @@ if ($event->type == 'checkout.session.completed') {
 }
 
 http_response_code(200);
-?>
+
 
 
 
