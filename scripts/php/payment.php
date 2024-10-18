@@ -6,30 +6,15 @@ error_reporting(E_ALL);
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-// Use the absolute path to your .env file
 $dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
 
-// Debug: Verify the path and directory contents
-var_dump(__DIR__);
-var_dump(scandir(dirname($dotenvPath))); 
-
-if (!file_exists($dotenvPath)) {
-    die('The .env file does not exist at ' . $dotenvPath);
-}
-
 // Load .env file from the correct directory
-$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath)); // Load from the directory of .env
-try {
-    $dotenv->load();
-} catch (Exception $e) {
-    die('Failed to load .env file: ' . $e->getMessage());
-}
-
-// Check all loaded environment variables
-print_r($_ENV);
+$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
+$dotenv->load();
 
 // Retrieve the Stripe secret key from the environment variable
-$stripeSecretKey = getenv('STRIPE_SECRET_KEY');
+$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null; // Use $_ENV instead of getenv()
+
 var_dump($stripeSecretKey); // Debug line to see the value of the key
 
 if (!$stripeSecretKey) {
