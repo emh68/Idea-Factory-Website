@@ -26,34 +26,44 @@ try {
 if ($event->type == 'checkout.session.completed') {
     $session = $event->data->object;
 
-    // Retrieve the metadata
-    $firstName = $session->metadata->first_name;
-    $lastName = $session->metadata->last_name;
-    $age = $session->metadata->age;
-    $selectedClass = $session->metadata->class;
-    $email = $session->metadata->email;
-    $registrationId = $session->metadata->registration_id;
+    // Logging the received session data
+    error_log("Received session: " . json_encode($session));
 
-    // Database connection
-    $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
-    if ($conn->connect_error) {
-        error_log("Database connection failed: " . $conn->connect_error);
-        exit();
-    }
+    $registrationId = $session->metadata->registration_id ?? null;
 
-    // Update registration status to "Registered" instead of "Enrolled"
-    $query = "UPDATE registrations SET status = 'Registered' WHERE id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $registrationId);
-    
-    if ($stmt->execute()) {
-        error_log("Registration updated successfully for $firstName $lastName.");
+    if ($registrationId) {
+        // Database connection
+        $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
+        if ($conn->connect_error) {
+            error_log("Database connection failed: " . $conn->connect_error);
+            exit();
+        }
+
+        // Use a transaction for reliable execution
+        $conn->begin_transaction();
+        try {
+            // Update registration status to "Registered"
+            $query = "UPDATE registrations SET status = 'Registered' WHERE id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $registrationId);
+
+            if ($stmt->execute()) {
+                error_log("Registration updated successfully for ID: $registrationId.");
+            } else {
+                error_log("Error updating registration: " . $stmt->error);
+            }
+
+            $stmt->close();
+            $conn->commit();
+        } catch (Exception $e) {
+            $conn->rollback();
+            error_log("Transaction rolled back: " . $e->getMessage());
+        } finally {
+            $conn->close();
+        }
     } else {
-        error_log("Error updating registration: " . $stmt->error);
+        error_log("No registration ID found in session metadata.");
     }
-
-    $stmt->close();
-    $conn->close();
 }
 
 http_response_code(200);
