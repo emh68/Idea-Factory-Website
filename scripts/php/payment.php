@@ -7,6 +7,10 @@ session_start();
 // require 'vendor/autoload.php'; // Include Stripe PHP library
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
+// Load .env file if you're using vlucas/phpdotenv
+$dotenv = Dotenv\Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT']);
+$dotenv->load();
+
 $stripeSecretKey = getenv('STRIPE_SECRET_KEY');
 if (!$stripeSecretKey) {
     die('Stripe secret key is not set or is empty.');
