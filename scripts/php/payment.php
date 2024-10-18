@@ -51,7 +51,15 @@ $session = $stripe->checkout->sessions->create([
         'first_name' => $firstName,
     ],
 ]);
+// After creating the Stripe Checkout session
+if ($session) {
+    // Store the message in the session based on payment success
+    $_SESSION['message'] = 'registered'; // Or 'waiting_list' based on your logic
+    $_SESSION['first_name'] = $firstName;
+    $_SESSION['selected_class'] = $selectedClass;
 
-header('Location: ' . $session->url);
-exit();
+    // Redirect to the Stripe Checkout page
+    header('Location: ' . $session->url);
+    exit();
+}
 ?>

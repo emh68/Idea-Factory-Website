@@ -45,24 +45,25 @@
     <?php
         session_start();
         if (isset($_SESSION['message'])) {
-            // Display the waiting list message or registration confirmation based on session variables.
             $message = $_SESSION['message'];
-            
-            // If user was successfully registered, include the student's first name and class name.
+            $firstName = $_SESSION['first_name'] ?? 'Student';
+            $class = $_SESSION['selected_class'] ?? 'Class';
+
             if ($message === 'registered') {
-                $firstName = $_SESSION['first_name'] ?? 'Student';
-                $class = $_SESSION['selected_class'] ?? 'Class';
                 echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
             } elseif ($message === 'waiting_list') {
                 echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
             }
-            
-            // Clear the message after displaying it to prevent repeated displays.
+
+            // Clear session variables
             unset($_SESSION['message']);
             unset($_SESSION['first_name']);
             unset($_SESSION['selected_class']);
+        } else {
+            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
         }
     ?>
+
 
     </main>
 
