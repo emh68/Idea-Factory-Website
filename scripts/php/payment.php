@@ -4,7 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-require 'vendor/autoload.php'; // Include Stripe PHP library
+// require 'vendor/autoload.php'; // Include Stripe PHP library
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 
 // Initialize Stripe Client with your live secret key
 $stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
