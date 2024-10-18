@@ -1,49 +1,4 @@
 <?php
-session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
-
-// Check if session variables are set
-if (!isset($_SESSION['first_name'], $_SESSION['last_name'], $_SESSION['selected_class'])) {
-    die("Session variables are not set.");
-}
-
-// Fetch Stripe secret key from .env
-$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
-$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
-$dotenv->load();
-
-$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null;
-if (!$stripeSecretKey) {
-    die('Stripe secret key is not set or is empty.');
-}
-
-\Stripe\Stripe::setApiKey($stripeSecretKey);
-
-// Create a checkout session
-$session = \Stripe\Checkout\Session::create([
-    'payment_method_types' => ['card'],
-    'line_items' => [[
-        'price_data' => [
-            'currency' => 'usd',
-            'product_data' => [
-                'name' => 'Class Registration for ' . $_SESSION['selected_class'],
-            ],
-            'unit_amount' => 10000, // Amount in cents, $100
-        ],
-        'quantity' => 1,
-    ]],
-    'mode' => 'payment',
-    'success_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php',
-]);
-
-header("Location: " . $session->url);
-exit();
-?>
-
-
-
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -81,7 +36,7 @@ $session = $stripe->checkout->sessions->create([
         'quantity' => 1,
     ]],
     'mode' => 'payment',
-    'success_url' => 'http://ideafactoryrexburg.com/scripts/php/confirm_payment.php?session_id={CHECKOUT_SESSION_ID}',
+    'success_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
     'cancel_url' => 'http://ideafactoryrexburg.com/scripts/php/results.php',
     'metadata' => [
         'class' => $selectedClass,
@@ -98,3 +53,4 @@ if ($session) {
     header('Location: ' . $session->url);
     exit();
 }
+?>
