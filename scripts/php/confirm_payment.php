@@ -3,7 +3,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 // Database connection
-$conn = new mysqli('your_host', 'your_username', 'your_password', 'your_database');
+$conn = new mysqli('107.180.118.249', 'Eli Hansen', 'Bri@rwood2()', 'idea_factory');
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
