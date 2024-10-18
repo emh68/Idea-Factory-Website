@@ -23,6 +23,78 @@ try {
     exit();
 }
 
+// Process the event
+switch ($event->type) {
+    case 'checkout.session.async_payment_succeeded':
+    case 'payment_intent.succeeded':
+        $session = $event->data->object;
+
+        // Retrieve the registration ID from session metadata
+        $registrationId = $session->metadata->registration_id ?? null;
+
+        if ($registrationId) {
+            // Database connection
+            $conn = new mysqli('107.180.118.249', 'EliHansen', 'Bri@rwood2()', 'idea_factory');
+
+            if ($conn->connect_error) {
+                error_log("Database connection failed: " . $conn->connect_error);
+                exit();
+            }
+
+            // Update registration status to "Registered"
+            $update_query = "UPDATE registrations SET status = 'Registered' WHERE id = ?";
+            $stmt = $conn->prepare($update_query);
+            $stmt->bind_param("i", $registrationId);
+
+            if ($stmt->execute()) {
+                error_log("Registration updated successfully for ID: $registrationId.");
+            } else {
+                error_log("Error updating registration: " . $stmt->error);
+            }
+
+            $stmt->close();
+            $conn->close();
+        } else {
+            error_log("No registration ID found in session metadata.");
+        }
+        break;
+
+    default:
+        error_log('Unhandled event type: ' . $event->type);
+        http_response_code(200);
+        exit();
+}
+
+http_response_code(200);
+?>
+
+
+
+
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+
+$payload = @file_get_contents('php://input');
+$sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
+$endpoint_secret = $_ENV['STRIPE_SIGNING_SECRET'];
+$event = null;
+
+try {
+    $event = \Stripe\Webhook::constructEvent($payload, $sig_header, $endpoint_secret);
+} catch (\UnexpectedValueException $e) {
+    http_response_code(400);
+    error_log('Invalid payload: ' . $e->getMessage());
+    exit();
+} catch (\Stripe\Exception\SignatureVerificationException $e) {
+    http_response_code(400);
+    error_log('Invalid signature: ' . $e->getMessage());
+    exit();
+}
+
 if ($event->type == 'checkout.session.completed') {
     $session = $event->data->object;
 
@@ -67,7 +139,7 @@ if ($event->type == 'checkout.session.completed') {
 }
 
 http_response_code(200);
-?>
+
 
 
 
