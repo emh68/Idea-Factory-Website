@@ -20,6 +20,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 // Use the absolute path to your .env file
 $dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env'; // Update this with your actual path
 
+var_dump(__DIR__); 
+var_dump(scandir(dirname($dotenvPath))); 
+
 if (!file_exists($dotenvPath)) {
     die('The .env file does not exist at ' . $dotenvPath);
 }
