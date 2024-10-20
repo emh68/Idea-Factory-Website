@@ -53,20 +53,25 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    /* background-color: #2F3061; */
-    background-color: #fff;
+    background-color: #2F3061;
 }
 
 header img {
     display: inline-block;
     vertical-align: middle;
+    border: 1px solid #fff;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 45px;
+    height: 40px;
 }
 
 header h1 {
     display: inline-block;
     justify-items: center;
     text-align: center;
-    color: #2F3061;
+    color: #CFE6FF;
 }
 
 #menu {
@@ -82,10 +87,11 @@ header h1 {
 
 #menu::before {
     content: "≡";
-    position: absolute;
-    top: 20px;
-    right: 15px;
-    color: #2F3061;
+    /* position: absolute; */
+    /* top: 20px; */
+    /* right: 15px; */
+    color: #CFE6FF;
+    vertical-align: middle;
 }
 
 nav {
@@ -167,15 +173,35 @@ ul {
     position: relative;
     text-align: center;
     /* margin: 20px; */
+    background-color: #fff;
 }
 
-.skills-container,
-.tools-container,
+.classes-container,
+.makerspace-container,
 .careers-section {
     /* border: 1px solid #000; */
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 4px 4px 15px 0px #b1b0b0;
     margin: 10px;
+    background-color: #fff;
+}
+
+.programming-container,
+.electronics-container {
+    border: 1px solid #000;
+    border-radius: 7px;
+    /* padding: 10px; */
+}
+
+.programming-container p {
+    padding: 20px;
+}
+
+.programming ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    text-align: center;
+    padding: 10px 10px 40px;
 }
 
 .image-container {
@@ -193,8 +219,8 @@ ul {
     /* float: right; */
 }
 
-.skills p,
-.tools p,
+.classes p,
+.makerspace p,
 .careers-section p {
     padding: 20px;
     position: relative;
@@ -238,8 +264,8 @@ iframe {
 
 
 footer {
-    color: #150E60;
-    background-color: #CFE6FF;
+    color: #CFE6FF;
+    background-color: #2F3061;
     text-align: center;
     padding: 40px;
 }

@@ -22,10 +22,13 @@
 
 <body>
     <header>
-        <a href="index.html"><img src="images/Screenshot 2024-09-24 133532.png" width="50px" height="50px" alt=""></a>
-        <a href="index.html">
+        <div class="logo">
+            <a href="index.html"><img src="images/Idea Factory Logo no background.png" width="50px" height="50px"
+                    alt=""></a>
+        </div>
+        <!-- <a href="index.html">
             <h1>IDEA FACTORY</h1>
-        </a>
+        </a> -->
         <a id="menu" href="#" aria-label="Toggle Hamburger Menu"></a>
     </header>
     <nav>
@@ -33,11 +36,13 @@
             <!-- <li><a href="#" class="active">HOME</a></li> -->
             <li><a href="classes.html">CLASSES</a></li>
             <li><a href="memberships.html">MEMBERSHIPS</a></li>
-            <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li>
+            <!-- <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li> -->
+            <li><a href="careers.html">CAREERS</a></li>
             <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="signup.html">SIGN UP</a></li>
-            <li><a href="login.html">LOG IN</a></li>
-            <li><a href="FAQs.html">FAQs</a></li>
+            <!-- <li><a href="signup.html">SIGN UP</a></li> -->
+            <!-- <li><a href="login.html">LOG IN</a></li> -->
+            <li><a href="faqs.html">FAQs</a></li>
+
         </ul>
     </nav>
 
@@ -57,45 +62,47 @@
                 skills, we offer two ways to help you succeed:
             </p>
             <!-- <div class="image-container"> -->
-            <div class="skills-container">
-                <div class="skills">
-                    <h3>Classes</h3>
-                    <hr>
-                    <p>If you're new to something like 3D printing, programming or audio recording, you can sign up for
-                        our classes.
-                        These classes will teach you valuable skills and the things you need to know so you can start
-                        creating right away. Click the button below for more information about our current class
-                        offerings and upcoming
-                        courses!
-                    </p>
-                    <!-- <img src="images/teacher-with-kids.jpg" alt=""> -->
+            <div class="classes">
+                <h3>Classes</h3>
+                <hr>
+                <p>If you're new to something like 3D printing, programming or audio recording, you can sign up for
+                    our classes.
+                    These classes will teach you valuable skills and the things you need to know so you can start
+                    creating right away. Click the button below for more information about our current class
+                    offerings and upcoming
+                    courses!
+                </p>
+                <div class="classes-container">
+                    <img src="images/teacher-with-kids.jpg" alt="" width="100%" height="auto">
                     <div class="button-container">
-                        <a class="button" href="classes.html">Classes</a>
+                        <a class="button" href="classes.html">REGISTER</a>
                     </div>
                 </div>
             </div>
-            <div class="tools-container">
-                <div class="tools">
-                    <h3>Makerspace</h3>
-                    <hr>
-                    <p>Already have the skills? You can sign up for a membership or a day pass and have access to our
-                        makerspace which includes the use of our equipment & tools like:
-                    </p>
-                    <ul>
-                        <li>3D printers</li>
-                        <li>Drones (racing & video)</li>
-                        <li>Computers</li>
-                        <li>Audio Recording Equipment</li>
-                        <li>Video Equipment (editing & green screen)</li>
-                        <li>Electronics stations</li>
-                        <li>more coming soon!</li>
-                    </ul>
-                </div>
-                <div class="goal">
-                    <p>Our goal is to give you the tools and skills to create amazing things!</p>
-                </div>
+            <div class="makerspace">
+                <h3>Makerspace</h3>
+                <hr>
+                <p>Already have the skills? You can sign up for a membership or a day pass and have access to our
+                    makerspace which includes the use of our equipment & tools like:
+                </p>
+                <ul>
+                    <li>3D printers</li>
+                    <li>Drones (racing & video)</li>
+                    <li>Computers</li>
+                    <li>Audio Recording Equipment</li>
+                    <li>Video Equipment (editing & green screen)</li>
+                    <li>Electronics stations</li>
+                    <li>Hand Tools</li>
+                    <li>more coming soon!</li>
+                </ul>
+            </div>
+            <div class="goal">
+                <p>Our goal is to give you the tools and skills to create amazing things!</p>
+            </div>
+            <div class="makerspace-container">
+                <img src="images/makersmaking.jpg" alt="" width="100%" height="auto">
                 <div class="button-container">
-                    <a class="button" href="membership.html">Membership</a>
+                    <a class="button" href="membership.html">SIGN UP</a>
                 </div>
             </div>
         </section>
@@ -141,10 +148,10 @@
                     people's lives? Then head over to our careers page and submit an application today!</p>
             </div>
             <div class="button-container">
-                <a class="button" href="careers.html">Careers</a>
+                <a class="button" href="careers.html">CAREERS</a>
             </div>
         </section>
-        <section class="weather-events-container">
+        <!-- <section class="weather-events-container">
 
             <div class="weather">
                 <h2>Weather</h2>
@@ -189,7 +196,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
     </main>
     <iframe
@@ -201,9 +208,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h3>
-                    Services
-                </h3>
+                <h3>Services</h3>
                 <ul>
                     <li><a href="/membership">Makerspace</a></li>
                     <li><a href="/classes">Classes</a></li>
@@ -235,23 +240,24 @@
         </div>
         <div class="social">
             <a href="https://www.facebook.com/ideafactoryrexburg" target="_blank">
-                <i class="fa-brands fa-square-facebook" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-facebook" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
             <a href="https://www.instagram.com/ideafactoryrexburg" target="_blank">
-                <i class="fa-brands fa-square-instagram" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-instagram" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
             <a href="https://www.twitter.com/" target="_blank">
-                <i class="fa-brands fa-square-x-twitter" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-x-twitter" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
             <a href="https://www.youtube.com/" target="_blank"></a>
-            <i class="fa-brands fa-square-youtube" style="color: #150E60; font-size: 36px;"></i>
+            <i class="fa-brands fa-square-youtube" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
         </div>
         <div class="footer-content"><span>&copy; <span id="currentYear"></span> Idea Factory <span></span>
         </div>
         <span id="siteseal">
             <script async type="text/javascript"
-                src="https://seal.starfieldtech.com/getSeal?sealID=G8Xyj7E5YzenIjoR9l3vlmmyuTgHpjaYG8FSdRDxV7DHj57O3h1WFTISxkUB"></script>
+                src="https://seal.starfieldtech.com/getSeal?sealID=G8Xyj7E5YzenIjoR9l3vlmmyuTgHpjaYG8FSdRDxV7DHj57O3h1WFTISxkUB">
+                </script>
         </span>
     </footer>
     <script src="scripts/js/index.js"></script>
