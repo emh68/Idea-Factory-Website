@@ -54,7 +54,7 @@ header {
     justify-content: space-between;
     padding: 10px;
     /* background-color: #2F3061; */
-    background-color: #2F3061;
+    background-color: #fff;
 }
 
 header img {
@@ -66,7 +66,7 @@ header h1 {
     display: inline-block;
     justify-items: center;
     text-align: center;
-    color: #CFE6FF;
+    color: #2F3061;
 }
 
 #menu {
@@ -85,7 +85,7 @@ header h1 {
     position: absolute;
     top: 20px;
     right: 15px;
-    color: #CFE6FF;
+    color: #2F3061;
 }
 
 nav {
@@ -154,10 +154,12 @@ ul {
     object-fit: cover;
 }
 
-p.description,
-p.goal,
-.makerspace p,
-.careers p {
+.description,
+.makerspace {
+    padding: 20px;
+}
+
+.goal {
     padding: 20px;
 }
 
@@ -167,9 +169,19 @@ p.goal,
     /* margin: 20px; */
 }
 
+.skills-container,
+.tools-container,
+.careers-section {
+    /* border: 1px solid #000; */
+    border-radius: 8px;
+    box-shadow: 4px 4px 15px 0px #b1b0b0;
+    margin: 10px;
+}
+
 .image-container {
     position: relative;
     width: 100%;
+    padding-top: 20px;
     /* max-width: 600px; */
     /* margin: 0 auto; */
 }
@@ -181,39 +193,17 @@ p.goal,
     /* float: right; */
 }
 
-/* .skills {
-    text-align: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #ebebeb;
-    box-shadow: 0 0 10px;
-    width: 300px;
-    max-width: 100%;
-    position: absolute;
-    top: 40%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    opacity: .85;
-    z-index: 2;
-} */
-
 .skills p,
-.tools p {
+.tools p,
+.careers-section p {
     padding: 20px;
     position: relative;
-    z-index: 3;
 }
 
-/* .teacher-students img {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    z-index: 1;
-} */
+.classes-headline p {
+    text-align: center;
+    padding: 20px;
+}
 
 .button-container {
     padding: 20px;
@@ -235,6 +225,11 @@ hr {
     margin: auto;
 }
 
+.careers-section {
+    text-align: center;
+    /* padding: 20px; */
+}
+
 iframe {
     width: 100%;
     height: 400px;
@@ -250,7 +245,7 @@ footer {
 }
 
 /* ------- Dark Mode -------*/
-.switch {
+/* .switch {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -383,22 +378,25 @@ input:checked+.slider:before {
 
 .dark-mode .membersList article:nth-child(even) {
     background-color: #000000;
-}
+} */
 
-/*-------- Registration Form ----------- */
+/*-------- Classes/Registration Form ----------- */
 .registration {
     /* background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7); */
     display: block;
+    padding-top: 50px;
 }
 
 form fieldset {
-    margin: 0 auto 10px;
+    margin: 0 auto 20px;
+    width: 100%;
     max-width: 100%;
     width: 600px;
-    border: 2px solid #000000;
+    border: 1px solid #dcdfff;
     border-radius: 5px;
     padding: 20px;
-    background-color: #e2eeff;
+    background-color: #2f3dfd17;
+    box-shadow: 12px 12px 14px #a8a7a7;
 }
 
 form legend {
@@ -423,6 +421,7 @@ form input {
 
 #class {
     padding: .4rem;
+    /* width: 100%; */
 }
 
 #registerButton {
@@ -431,6 +430,6 @@ form input {
     border-radius: 7px;
     margin-left: 20px;
     background-color: #150E60;
-    color: #4ed19f;
+    color: #CFE6FF;
     width: 150px;
 }
