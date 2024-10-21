@@ -69,15 +69,12 @@ header {
 
 header h1 {
     display: inline-block;
-    /* justify-items: center; */
-    /* text-align: center; */
     color: #CFE6FF;
-    /* margin: 0 10px; */
 }
 
 #menu {
     font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
-    display: inline-block;
+    display: block;
     font-size: 2rem;
     font-weight: 500;
     text-decoration: none;
@@ -97,13 +94,24 @@ header h1 {
     display: none;
 }
 
-.navigation {
+/* .navigation {
     list-style-type: none;
-    /* justify-content: center; */
+    font-family: var(--font_bxbold);
     background-color: #2F3061;
     padding: 0;
     margin: 0;
+} */
+.navigation {
+    list-style-type: none;
+    font-family: var(--font_bxbold);
+    background-color: #2F3061;
+    position: absolute;
+    right: 0px;
+    top: 65px;
+    z-index: 1;
 }
+
+
 
 .navigation li {
     display: none;
@@ -129,10 +137,6 @@ nav.show {
     display: block;
     text-align: right;
 }
-
-/* .active::before {
-    content: "👉 ";
-} */
 
 .show li {
     display: block;

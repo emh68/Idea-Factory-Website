@@ -1,11 +1,8 @@
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 680px) {
 
 
     header {
-        /* justify-content: space-between; */
         align-items: center;
-        /* display: flex; */
-        /* justify-content: space-between; */
     }
 
     h1 {
@@ -13,13 +10,13 @@
     }
 
     nav {
-        padding: 15px;
+        padding: 10px;
     }
 
     .navigation {
         display: flex;
-        /* flex-direction: row; */
         justify-content: flex-end;
+        position: static;
     }
 
     .navigation li {
