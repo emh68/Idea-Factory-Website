@@ -1,22 +1,25 @@
-/* @media screen and (min-width: 640px) {
+@media screen and (min-width: 640px) {
+
 
     header {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+        /* justify-content: space-between; */
         align-items: center;
+        /* display: flex; */
+        /* justify-content: space-between; */
     }
 
-    .logo img {
-        width: 150px;
-        height: auto;
+    h1 {
+        padding: 20px;
+    }
 
+    nav {
+        padding: 15px;
     }
 
     .navigation {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        /* flex-direction: row; */
+        justify-content: flex-end;
     }
 
     .navigation li {
@@ -26,83 +29,10 @@
 
     .navigation a {
         text-align: center;
+        display: block;
     }
 
     #menu {
         display: none;
     }
-
-    body {
-        max-width: 100%;
-        margin: auto;
-    }
-
-    main {
-        margin: auto;
-        max-width: 100%;
-    }
-
-    h1 {
-        text-align: center;
-        margin: 0;
-    }
-
-    h2 {
-        grid-column: 1 / -1;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    .vehicles {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
-        gap: 20px;
-        max-width: 100%;
-    }
-
-    .vehicles-headline {
-        grid-column: 1 / -1;
-    }
-
-    .button-container {
-        grid-column: 1 / -1;
-    }
-
-    .button {
-        grid-column: 1 / -1;
-        width: 200px;
-    }
-
-    .social {
-        display: inline-block;
-        grid-column: 1 / -1;
-    }
-
-    .weather {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 5px;
-    }
-
-    .weather hr {
-        grid-column: 1 / -1;
-    }
-
-    .scooters,
-    .atvs,
-    .jetskis {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .rentals-headline {
-        grid-column: 1 / -1;
-    }
-
-    .pricing {
-        display: grid;
-        grid-template-columns: 3fr;
-        max-width: 100%;
-    }
-} */
+}

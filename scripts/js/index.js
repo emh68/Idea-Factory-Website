@@ -22,8 +22,19 @@ document.addEventListener('DOMContentLoaded', function () {
         nav.classList.toggle('show'); // Show/hide the navigation
         menuButton.classList.toggle('show'); // Toggle the menu button's show class
     });
-
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const menu = document.getElementById("menu");
+//     const navigation = document.querySelector(".navigation");
+
+//     menu.addEventListener("click", () => {
+//         // Toggle visibility of the navigation menu
+//         navigation.classList.toggle("visible");
+//         menu.classList.toggle("open");
+//     });
+// });
+
 
 document.querySelectorAll('#registrationForm input').forEach(input => {
     input.addEventListener('input', function () {

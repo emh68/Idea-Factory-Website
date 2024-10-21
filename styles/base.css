@@ -40,9 +40,9 @@ h4 {
     padding-top: 20px;
 }
 
-.logo {
+/* .logo {
     justify-content: center;
-}
+} */
 
 body {
     max-width: 100%;
@@ -56,7 +56,7 @@ header {
     background-color: #2F3061;
 }
 
-header img {
+.logo img {
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #fff;
@@ -69,9 +69,10 @@ header img {
 
 header h1 {
     display: inline-block;
-    justify-items: center;
-    text-align: center;
+    /* justify-items: center; */
+    /* text-align: center; */
     color: #CFE6FF;
+    /* margin: 0 10px; */
 }
 
 #menu {
@@ -81,42 +82,36 @@ header h1 {
     font-weight: 500;
     text-decoration: none;
     padding: .5rem .75rem;
-    /* background-color: #2F3061; */
-    /* color: #000; */
 }
 
 #menu::before {
     content: "≡";
-    /* position: absolute; */
-    /* top: 20px; */
-    /* right: 15px; */
+    position: absolute;
+    top: 20px;
+    right: 15px;
     color: #CFE6FF;
     vertical-align: middle;
 }
 
-nav {
+.nav {
     display: none;
-}
-
-nav.show {
-    display: block;
-    text-align: right;
 }
 
 .navigation {
     list-style-type: none;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: #2F3061;
     padding: 0;
     margin: 0;
 }
 
 .navigation li {
-    display: inline-block;
+    display: none;
     padding: 10px;
 }
 
 .navigation a {
+    display: block;
     padding: .5rem;
     text-align: center;
     text-decoration: none;
@@ -127,12 +122,17 @@ nav.show {
 .navigation a:hover,
 .navigation a:active {
     color: white;
-    background-color: #a53860;
+    background-color: #51a538;
 }
 
-.active::before {
-    content: "👉 ";
+nav.show {
+    display: block;
+    text-align: right;
 }
+
+/* .active::before {
+    content: "👉 ";
+} */
 
 .show li {
     display: block;
