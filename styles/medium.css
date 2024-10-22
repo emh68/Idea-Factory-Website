@@ -38,4 +38,11 @@
         grid-template-columns: 1fr 1fr;
 
     }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+        gap: 10px;
+        justify-content: center;
+    }
 }
