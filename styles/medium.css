@@ -1,4 +1,4 @@
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 725px) {
 
 
     header {
@@ -31,5 +31,11 @@
 
     #menu {
         display: none;
+    }
+
+    .classes-makerspace-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
     }
 }
