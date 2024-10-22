@@ -128,6 +128,7 @@ header h1 {
 .navigation a:active {
     color: white;
     background-color: #51a538;
+    border-radius: 4px;
 }
 
 nav.show {
@@ -190,18 +191,19 @@ ul {
 
 .welcome-section,
 .classes-makerspace-section,
-.makerspace-section {
+.makerspace-section,
+.careers-section {
     position: relative;
     text-align: center;
     /* margin: 20px; */
     padding-top: 20px;
-    /* font-size: 2vw; */
+    font-size: 1vw;
 
 }
 
 .classes-container,
 .makerspace-container,
-.careers-section {
+.careers-container {
     /* border: 1px solid #000; */
     /* border-radius: 8px; */
     box-shadow: 4px 4px 15px 0px #b1b0b0;
@@ -213,7 +215,7 @@ ul {
 .makerspace h2,
 .careers-container h2 {
     padding-top: 20px;
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
 .classes img,
@@ -313,6 +315,11 @@ iframe {
 .footer-container ul li a:link {
     text-decoration: none;
     color: #CFE6FF;
+}
+
+.footer-container ul li a:hover {
+    text-decoration: none;
+    color: #fff;
 }
 
 .footer-container ul li a:visited {
