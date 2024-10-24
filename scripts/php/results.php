@@ -23,7 +23,7 @@
 <body>
 <header>
         <div class="logo">
-            <a href="index.html"><img src="images/Idea-Factory-logo-no-background.png" width="50" height="50"
+            <a href="index.html"><img src="../images/Idea-Factory-logo-no-background.png" width="50" height="50"
                     alt=""></a>
         </div>
         <a href="index.html">
