@@ -33,16 +33,11 @@
 
         <nav>
             <ul class="navigation">
-                <!-- <li><a href="#" class="active">HOME</a></li> -->
                 <li><a href="classes.html">CLASSES</a></li>
                 <li><a href="memberships.html">MAKERSPACE</a></li>
-                <!-- <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li> -->
                 <li><a href="careers.html">CAREERS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-                <!-- <li><a href="signup.html">SIGN UP</a></li> -->
-                <!-- <li><a href="login.html">LOG IN</a></li> -->
                 <li><a href="faqs.html">FAQs</a></li>
-
             </ul>
         </nav>
     </header>
