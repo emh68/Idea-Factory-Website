@@ -33,11 +33,11 @@
 
         <nav>
             <ul class="navigation">
-                <li><a href="classes.html">CLASSES</a></li>
-                <li><a href="memberships.html">MAKERSPACE</a></li>
-                <li><a href="careers.html">CAREERS</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="../../classes.html">CLASSES</a></li>
+                <li><a href="../../memberships.html">MAKERSPACE</a></li>
+                <li><a href="../../careers.html">CAREERS</a></li>
+                <li><a href="../../contact.html">CONTACT</a></li>
+                <li><a href="../../faqs.html">FAQs</a></li>
             </ul>
         </nav>
     </header>
@@ -84,8 +84,6 @@
             echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
         }
     ?>
-
-
     </main>
 
     <footer>
@@ -93,21 +91,21 @@
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul>
-                    <li><a href="membership.html">Makerspace</a></li>
-                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="../../membership.html">Makerspace</a></li>
+                    <li><a href="../../classes.html">Classes</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Support</h3>
                 <ul>
-                    <li><a href="faqs.html">FAQs</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="../../faqs.html">FAQs</a></li>
+                    <li><a href="../../contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Company</h3>
                 <ul>
-                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="../../careers.html">Careers</a></li>
                     <!-- <li><a href="/Investor Relations">Investor Relations</a></li> -->
                 </ul>
             </div>
