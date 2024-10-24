@@ -166,7 +166,7 @@ ul {
     text-align: center;
     border: 1px solid #000;
     border-radius: 5px;
-    font-size: 3vw;
+    font-size: 1rem;
     font-weight: 700;
     font-family: var(--font_hvyitalic);
     width: 40%;
@@ -189,7 +189,17 @@ ul {
     padding: 20px;
 }
 
-.welcome-section,
+.welcome-section {
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1rem;
+    max-width: 100%;
+    /* color: #CFE6FF; */
+    /* background-image: linear-gradient(rgb(0, 19, 102), #25b1ca); */
+    /* background-image: linear-gradient(#2F3061, #25b1ca); */
+}
+
 .classes-makerspace-section,
 .makerspace-section,
 .careers-section {
@@ -199,17 +209,26 @@ ul {
     padding-top: 20px;
     font-size: 1rem;
     max-width: 100%;
-
 }
 
 .classes-container,
-.makerspace-container,
-.careers-container {
+.makerspace-container {
     /* border: 1px solid #000; */
     /* border-radius: 8px; */
     box-shadow: 4px 4px 15px 0px #b1b0b0;
     margin: 10px;
     background-color: #fff;
+    /* color: #CFE6FF; */
+    /* background-image: linear-gradient(rgb(0, 19, 102), #25b1ca); */
+    /* background-image: linear-gradient(#2F3061, #25b1ca); */
+}
+
+.careers-container {
+    box-shadow: 4px 4px 15px 0px #b1b0b0;
+    margin: 10px;
+    background-color: #fff;
+    /* color: #CFE6FF; */
+    /* background-image: linear-gradient(#25b1ca, #2F3061); */
 }
 
 .classes h2,
@@ -222,6 +241,8 @@ ul {
 .classes img,
 .makerspace img {
     padding: 20px 10px 10px;
+    width: 100%;
+    height: auto;
 }
 
 .makerspace ul {
@@ -230,14 +251,131 @@ ul {
     padding-bottom: 10px;
 }
 
-.programming-container,
+
 .electronics-container {
     border: 1px solid #000;
     border-radius: 7px;
     /* padding: 10px; */
 }
 
-.programming-container p {
+.description {
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+}
+
+/* .courses-section {
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1rem;
+    max-width: 100%;
+} */
+
+.class-info h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.class-info {
+    max-width: 100%;
+    /* width: 600px; */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.class-info h3 {
+    text-align: left;
+}
+
+/* .class-dates-section {
+    margin-top: 20px;
+} */
+
+.class-dates-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.class-dates-table th,
+.class-dates-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.class-dates-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+
+.class-dates,
+.class-location,
+.class-age,
+.class-instructor,
+.class-cost {
+    margin: 10px 10px 10px 0px;
+    font-size: 16px;
+    text-align: left;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.toggle-btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    background-color: #f9f9f9;
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.class-description {
+    margin-top: 20px;
+}
+
+.class-description h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.class-description p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.class-description ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.class-description ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+
+
+/* .programming-container p {
     padding: 20px;
 }
 
@@ -246,21 +384,18 @@ ul {
     list-style-position: inside;
     text-align: center;
     padding: 10px 10px 40px;
-}
+} */
 
 .image-container {
     position: relative;
     width: 100%;
     padding-top: 20px;
-    /* max-width: 600px; */
-    /* margin: 0 auto; */
 }
 
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
-    /* float: right; */
 }
 
 .description p,
@@ -336,142 +471,6 @@ footer {
     padding: 40px;
 }
 
-/* ------- Dark Mode -------*/
-/* .switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #FED74F;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: '🔆';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 22px;
-    width: 22px;
-    left: 1px;
-    bottom: 1px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background-color: #2F3061;
-}
-
-input:hover+.slider {
-    box-shadow: 0 0 20px #fff;
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-    content: '';
-    background-image: url('../images/moon.webp');
-    background-size: cover;
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-#mode {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 3rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-.dark-mode {
-    background-color: #000;
-    color: #fff;
-    border-color: #eee;
-}
-
-.dark-mode .membersGrid .member-details a:visited,
-.dark-mode .events a:visited,
-.dark-mode .facts-container a:visited,
-.dark-mode .visit-links a:visited {
-    color: #b495d0;
-    background-color: transparent;
-    text-decoration: underline;
-}
-
-.dark-mode .membersGrid .member-details a,
-.dark-mode .events a,
-.dark-mode .facts-container a,
-.dark-mode .visit-links a {
-    color: #ffe344;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-.dark-mode .facts-container .facts-list li,
-.dark-mode header,
-.dark-mode .herotextbox,
-.dark-mode .membership-benefits,
-.dark-mode .events,
-.dark-mode .weather,
-.dark-mode .spotlight,
-.dark-mode .directory-view {
-    background-color: #000;
-}
-
-.dark-mode form legend,
-.dark-mode .facts-container {
-    color: #fff;
-    background-color: #000;
-}
-
-.dark-mode .feature,
-.dark-mode .membership-option {
-    color: #000;
-}
-
-.dark-mode .membersList h3,
-.dark-mode .membersList p {
-    color: #fff
-}
-
-.dark-mode .membersList article {
-    background-color: #161616;
-}
-
-.dark-mode .membersList article:nth-child(even) {
-    background-color: #000000;
-} */
-
 /*-------- Classes/Registration Form ----------- */
 .registration {
     /* background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7); */
@@ -520,6 +519,27 @@ form input {
     padding: 5px;
     /* border: 1.5px solid #000; */
     border-radius: 7px;
+    margin-left: 20px;
+    background-color: #150E60;
+    color: #CFE6FF;
+    width: 150px;
+}
+
+/*-------- Mailing List ----------- */
+
+.mailinglist h2 {
+    text-align: center;
+    margin: 60px;
+}
+
+.mailinglist {
+    max-width: 100%;
+}
+
+#subscribeButton {
+    padding: 5px;
+    border-radius: 7px;
+    margin: 20px;
     margin-left: 20px;
     background-color: #150E60;
     color: #CFE6FF;
