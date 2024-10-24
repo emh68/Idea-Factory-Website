@@ -53,9 +53,12 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("ssss", $fname, $lname, $email, $phone);
 
 if ($stmt->execute()) {
+    // After adding to mailing list
+    $_SESSION['message_type'] = 'mailing_list';
     $_SESSION['message'] = "You have been successfully added to the mailing list!";
     header("Location: /scripts/php/results.php");
     exit();
+
 } else {
     $_SESSION['message'] = "Error adding to mailing list.";
     header("Location: /scripts/php/results.php");
