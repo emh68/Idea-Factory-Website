@@ -21,28 +21,52 @@
 </head>
 
 <body>
-    <header>
-        <a href="index.html"><img src="../../images/Screenshot 2024-09-24 133532.png" width="50px" height="50px" alt=""></a>
+<header>
+        <div class="logo">
+            <a href="index.html"><img src="images/Idea-Factory-logo-no-background.png" width="50" height="50"
+                    alt=""></a>
+        </div>
         <a href="index.html">
             <h1>IDEA FACTORY</h1>
         </a>
         <a id="menu" href="#" aria-label="Toggle Hamburger Menu"></a>
-    </header>
-    <nav>
-        <ul class="navigation">
-            <!-- <li><a href="#" class="active">HOME</a></li> -->
-            <li><a href="classes.html">CLASSES</a></li>
-            <li><a href="memberships.html">MEMBERSHIPS</a></li>
-            <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="signup.html">SIGN UP</a></li>
-            <li><a href="login.html">LOG IN</a></li>
-            <li><a href="FAQs.html">FAQs</a></li>
-        </ul>
-    </nav>
 
+        <nav>
+            <ul class="navigation">
+                <!-- <li><a href="#" class="active">HOME</a></li> -->
+                <li><a href="classes.html">CLASSES</a></li>
+                <li><a href="memberships.html">MAKERSPACE</a></li>
+                <!-- <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li> -->
+                <li><a href="careers.html">CAREERS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <!-- <li><a href="signup.html">SIGN UP</a></li> -->
+                <!-- <li><a href="login.html">LOG IN</a></li> -->
+                <li><a href="faqs.html">FAQs</a></li>
+
+            </ul>
+        </nav>
+    </header>
     <main>
     <?php
+        // session_start();
+        // if (isset($_SESSION['message'])) {
+        //     $message = $_SESSION['message'];
+        //     $firstName = $_SESSION['first_name'] ?? 'Student';
+        //     $class = $_SESSION['selected_class'] ?? 'Class';
+
+        //     if ($message === 'registered') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
+        //     } elseif ($message === 'waiting_list') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+        //     }
+
+        //     // Clear session variables
+        //     unset($_SESSION['message']);
+        //     unset($_SESSION['first_name']);
+        //     unset($_SESSION['selected_class']);
+        // } else {
+        //     echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
+        // }
         session_start();
         if (isset($_SESSION['message'])) {
             $message = $_SESSION['message'];
@@ -53,9 +77,11 @@
                 echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
             } elseif ($message === 'waiting_list') {
                 echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+            } elseif ($message === 'mailing_list') {
+                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
             }
 
-            // Clear session variables
+            // Clear session variables after displaying the message
             unset($_SESSION['message']);
             unset($_SESSION['first_name']);
             unset($_SESSION['selected_class']);
@@ -70,26 +96,23 @@
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h3>
-                    Services
-                </h3>
+                <h3>Services</h3>
                 <ul>
-                    <li><a href="/membership">Makerspace</a></li>
-                    <li><a href="/classes">Classes</a></li>
+                    <li><a href="membership.html">Makerspace</a></li>
+                    <li><a href="classes.html">Classes</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Support</h3>
                 <ul>
-                    <li><a href="/faqs">FAQs</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Company</h3>
                 <ul>
-                    <li><a href="/About">About Us</a></li>
-                    <li><a href="/Become an Instructor">Careers</a></li>
+                    <li><a href="careers.html">Careers</a></li>
                     <!-- <li><a href="/Investor Relations">Investor Relations</a></li> -->
                 </ul>
             </div>
@@ -99,25 +122,29 @@
         <div class="contact-info">
             <p>
                 <strong>The Idea Factory</strong><br>343 E 4th N<br>Rexburg, ID 83440<br>Phone:
-                208-356-0952<br>Email: info@ideafactoryusa.com<br><br>
+                208-656-1616<br>Email: contact@ideafactoryrexburg.com<br><br>
             </p>
         </div>
         <div class="social">
             <a href="https://www.facebook.com/ideafactoryrexburg" target="_blank">
-                <i class="fa-brands fa-square-facebook" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-facebook" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
             <a href="https://www.instagram.com/ideafactoryrexburg" target="_blank">
-                <i class="fa-brands fa-square-instagram" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-instagram" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
             <a href="https://www.twitter.com/" target="_blank">
-                <i class="fa-brands fa-square-x-twitter" style="color: #150E60; font-size: 36px;"></i>
+                <i class="fa-brands fa-square-x-twitter" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
-            <a href="https://www.youtube.com/" target="_blank"></a>
-            <i class="fa-brands fa-square-youtube" style="color: #150E60; font-size: 36px;"></i>
+            <a href="https://www.youtube.com/" target="_blank">
+                <i class="fa-brands fa-square-youtube" style="color: #CFEFFF; font-size: 36px;"></i>
             </a>
         </div>
-        <div class="footer-content"><span>&copy; <span id="currentYear"></span> Idea Factory <span></span>
-        </div>
+        <div class="footer-content"><span>&copy; <span id="currentYear"></span><span> Idea Factory </span></span></div>
+        <span id="siteseal">
+            <script async
+                src="https://seal.starfieldtech.com/getSeal?sealID=G8Xyj7E5YzenIjoR9l3vlmmyuTgHpjaYG8FSdRDxV7DHj57O3h1WFTISxkUB">
+                </script>
+        </span>
     </footer>
     <script src="scripts/js/index.js"></script>
     <!-- <script src="https://js.stripe.com/v3/"></script>
