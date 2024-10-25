@@ -139,6 +139,7 @@ header h1 {
 nav.show {
     display: block;
     text-align: right;
+    z-index: 3;
 }
 
 .show li {
