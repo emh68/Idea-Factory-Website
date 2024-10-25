@@ -35,20 +35,30 @@
 
     .courses-makerspace-section {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .course-details-container {
+        max-width: 100%;
+        display: grid;
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
 
-    .courses-container,
-    .makerspace-container,
-    .careers-container {
-        /* display: grid;
+
+    /* .courses-info {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px; */
-        width: 100%;
-        max-width: 100%;
-        gap: 20px;
+    } */
+
+    /* 
+    .courses-section {
+        display: grid;
     }
+
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+    } */
 
     .contact-section {
         display: flex;
