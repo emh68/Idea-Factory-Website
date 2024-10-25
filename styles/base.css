@@ -124,11 +124,16 @@ header h1 {
     font-weight: 500;
 }
 
-.navigation a:hover,
-.navigation a:active {
+.navigation a:hover {
     color: white;
     background-color: #51a538;
     border-radius: 4px;
+}
+
+.navigation .active {
+    text-decoration: underline;
+    text-decoration-color: #F9FD46;
+    text-decoration-thickness: 4px;
 }
 
 nav.show {
@@ -264,21 +269,21 @@ ul {
     font-weight: 700;
 }
 
-/* .courses-section {
+.courses-section {
     position: relative;
     text-align: center;
     padding-top: 20px;
     font-size: 1rem;
     max-width: 100%;
-} */
+}
 
-.class-info h2 {
+.course-info h2 {
     font-size: 24px;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.class-info {
+.course-info {
     max-width: 100%;
     /* width: 600px; */
     padding: 20px;
@@ -290,7 +295,7 @@ ul {
     text-align: left;
 }
 
-.class-info h3 {
+.course-info h3 {
     text-align: left;
 }
 
@@ -298,30 +303,30 @@ ul {
     margin-top: 20px;
 } */
 
-.class-dates-table {
+.course-dates-table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
 }
 
-.class-dates-table th,
-.class-dates-table td {
+.course-dates-table th,
+.course-dates-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 
-.class-dates-table th {
+.course-dates-table th {
     background-color: #f2f2f2;
     font-weight: bold;
 }
 
 
-.class-dates,
-.class-location,
-.class-age,
-.class-instructor,
-.class-cost {
+.course-dates,
+.course-location,
+.course-age,
+.course-instructor,
+.course-cost {
     margin: 10px 10px 10px 0px;
     font-size: 16px;
     text-align: left;
@@ -346,27 +351,27 @@ strong {
     margin-bottom: 20px;
 }
 
-.class-description {
+.course-description {
     margin-top: 20px;
 }
 
-.class-description h3 {
+.course-description h3 {
     font-size: 20px;
     margin-bottom: 10px;
     text-align: left;
 }
 
-.class-description p {
+.course-description p {
     font-size: 14px;
     line-height: 1.6;
 }
 
-.class-description ul {
+.course-description ul {
     padding-left: 20px;
     margin-top: 10px;
 }
 
-.class-description ul li {
+.course-description ul li {
     font-size: 14px;
     margin-bottom: 5px;
     list-style-type: disc;
@@ -475,14 +480,14 @@ footer {
 .registration {
     /* background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7); */
     display: block;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
 form fieldset {
     margin: 0 auto 20px;
-    width: 100%;
-    max-width: 100%;
-    width: 600px;
+    /* width: 100%; */
+    max-width: 600px;
+    /* width: 600px; */
     border: 1px solid #dcdfff;
     border-radius: 5px;
     padding: 20px;
@@ -510,16 +515,17 @@ form input {
     background-color: rgb(255, 255, 255);
 }
 
-#class {
-    padding: .4rem;
-    /* width: 100%; */
+#course {
+    padding: .5rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 #registerButton {
     padding: 5px;
     /* border: 1.5px solid #000; */
     border-radius: 7px;
-    margin-left: 20px;
+    margin: 30px 0px 20px;
     background-color: #150E60;
     color: #CFE6FF;
     width: 150px;
@@ -545,6 +551,74 @@ form input {
     color: #CFE6FF;
     width: 150px;
 }
+
+/*-------- Careers ----------------*/
+body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+/* h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+} */
+
+.careers-headline p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+}
+
+.job-listings p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+.job-listings {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.job-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.job-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-card p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.apply-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.apply-link:hover {
+    background-color: #0056b3;
+}
+
 
 /*-------- Contact Us ----------- */
 

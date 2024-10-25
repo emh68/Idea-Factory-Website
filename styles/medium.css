@@ -53,12 +53,8 @@
 
     .contact-container {
         display: flex;
-        /* Use flexbox */
         flex-direction: row;
-        /* Arrange items in a row */
         justify-content: space-between;
-        /* Space between items */
-        /* align-items: center; */
         align-items: flex-start;
         max-width: 800px;
         width: 100%;
@@ -69,8 +65,6 @@
         /* Allow the address to take one column */
         margin-top: 40px;
         margin-right: 20px;
-        /* Space between the address and form */
-        /* text-align: center; */
     }
 
     .contact-form {

@@ -34,7 +34,7 @@ $session = $stripe->checkout->sessions->create([
             'product_data' => [
                 'name' => "Registration for $selectedClass",
             ],
-            'unit_amount' => 200000, // $200.00 (in cents)
+            'unit_amount' => 20000, // $200.00 (in cents)
         ],
         'quantity' => 1,
     ]],

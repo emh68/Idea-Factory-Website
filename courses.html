@@ -33,13 +33,10 @@
         <nav>
             <ul class="navigation">
                 <!-- <li><a href="#" class="active">HOME</a></li> -->
-                <li><a href="classes.html">COURSES</a></li>
-                <li><a href="memberships.html">MAKERSPACE</a></li>
-                <!-- <li><a href="reservations.html" onclick="checkLoginStatus()">RESERVATIONS</a></li> -->
+                <li><a href="courses.html" class="active">COURSES</a></li>
+                <li><a href="makerspace.html">MAKERSPACE</a></li>
                 <li><a href="careers.html">CAREERS</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
-                <!-- <li><a href="signup.html">SIGN UP</a></li> -->
-                <!-- <li><a href="login.html">LOG IN</a></li> -->
                 <li><a href="faqs.html">FAQs</a></li>
             </ul>
         </nav>
@@ -76,14 +73,15 @@
             </ul>
             <p class="description">If you would like to be notified when additional courses become
                 available please
-                subscribe to our mailing list by clicking <a href="mailinglist.html">here</a>.
-            </p>
+                subscribe to our mailing list by clicking <a href="mailinglist.html">HERE</a>.<br>
+                If you are an adult registering your child, please enter the student's first and last name, but enter
+                the parent or legal guardian info. for the email and phone number </p>
             <div class="courses-container">
-                <div class="class-info">
+                <div class="course-info">
                     <h2>Programming - Python Course Details</h2>
-                    <div class="class-dates-section">
+                    <div class="course-dates-section">
                         <h3>Course Dates</h3>
-                        <table class="class-dates-table">
+                        <table class="course-dates-table">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -111,23 +109,23 @@
                         </table>
                     </div>
 
-                    <div class="class-location">
+                    <div class="course-location">
                         <strong>Location:</strong> Conference Room @ 343 E 4th N, Rexburg, ID 83440
                     </div>
-                    <div class="class-time">
+                    <div class="course-time">
                         <strong>Class Time:</strong> Tuesdays 4:00pm-6:00pm
                     </div>
-                    <div class="class-age">
+                    <div class="course-age">
                         <strong>Age Group:</strong> 12 - 16
                     </div>
-                    <div class="class-instructor">
+                    <div class="course-instructor">
                         <strong>Instructor:</strong> <a href="">Eli Hansen</a>
                     </div>
-                    <div class="class-cost">
+                    <div class="course-cost">
                         <strong>Cost:</strong> $200/month
                     </div>
 
-                    <div class="class-description">
+                    <div class="course-description">
                         <h3>Course Info:</h3><!-- Toggle button for course info -->
                         <button class="toggle-btn">+</button>
                         <div class="course-info" style="display: none;">
@@ -156,11 +154,11 @@
                     </div>
                 </div>
 
-                <div class="class-info">
+                <div class="course-info">
                     <h2>Electronics - Basic Circuits Course Details</h2>
-                    <div class="class-dates-section">
+                    <div class="course-dates-section">
                         <h3>Course Dates</h3>
-                        <table class="class-dates-table">
+                        <table class="course-dates-table">
                             <thead>
                                 <tr>
                                     <th>Month</th>
@@ -188,23 +186,23 @@
                         </table>
                     </div>
 
-                    <div class="class-location">
+                    <div class="course-location">
                         <strong>Location:</strong> Conference Room @ 343 E 4th N, Rexburg, ID 83440
                     </div>
-                    <div class="class-time">
+                    <div class="course-time">
                         <strong>Class Time:</strong> Wednesdays 4:00pm-6:00pm
                     </div>
-                    <div class="class-age">
+                    <div class="course-age">
                         <strong>Age Group:</strong> 12 - 16
                     </div>
-                    <div class="class-instructor">
+                    <div class="course-instructor">
                         <strong>Instructor:</strong> <a href="">Eli Hansen</a>
                     </div>
-                    <div class="class-cost">
+                    <div class="course-cost">
                         <strong>Cost:</strong> $200/month
                     </div>
 
-                    <div class="class-description">
+                    <div class="course-description">
                         <h3>Course Info:</h3><!-- Toggle button for course info -->
                         <button class="toggle-btn">+</button>
                         <div class="course-info" style="display: none;">
@@ -238,7 +236,7 @@
         <div class="registration">
             <form id="registrationForm" action="scripts/php/registration.php" method="POST">
                 <fieldset>
-                    <legend>User Information</legend>
+                    <legend>Student Information</legend>
                     <label for="fname">First Name*</label>
                     <input type="text" id="fname" name="fname" pattern="^[A-Za-z]{1,25}$"
                         title="First name must contain only letters." required>
@@ -265,7 +263,7 @@
                 <fieldset>
                     <legend>Course Registration</legend>
                     <label for="class">Select Course:</label>
-                    <select id="class" name="class">
+                    <select id="course" name="class">
                         <option value="python-beginner-12-16">Programming Python (Beginner Age 12-16)</option>
                         <option value="electronic-circuits-beginner-12-16">Electronic Circuits (Beginner Age 12-16)
                         </option>
@@ -289,7 +287,7 @@
                 <h3>Services</h3>
                 <ul>
                     <li><a href="membership.html">Makerspace</a></li>
-                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="courses.html">Courses</a></li>
                 </ul>
             </div>
             <div class="footer-column">
