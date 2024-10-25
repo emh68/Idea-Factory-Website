@@ -33,14 +33,20 @@
         display: none;
     }
 
-    .classes-makerspace-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .courses-container {
+    .courses-makerspace-section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .courses-container,
+    .makerspace-container,
+    .careers-container {
+        /* display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px; */
+        width: 100%;
+        max-width: 100%;
         gap: 20px;
     }
 

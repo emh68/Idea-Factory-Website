@@ -205,7 +205,7 @@ ul {
     /* background-image: linear-gradient(#2F3061, #25b1ca); */
 }
 
-.classes-makerspace-section,
+.courses-makerspace-section,
 .makerspace-section,
 .careers-section {
     position: relative;
@@ -216,7 +216,7 @@ ul {
     max-width: 100%;
 }
 
-.classes-container,
+.courses-container,
 .makerspace-container {
     /* border: 1px solid #000; */
     /* border-radius: 8px; */
@@ -236,14 +236,14 @@ ul {
     /* background-image: linear-gradient(#25b1ca, #2F3061); */
 }
 
-.classes h2,
+.courses h2,
 .makerspace h2,
 .careers-container h2 {
     padding-top: 20px;
     font-size: 1.5rem;
 }
 
-.classes img,
+.courses img,
 .makerspace img {
     padding: 20px 10px 10px;
     width: 100%;
@@ -404,7 +404,7 @@ strong {
 }
 
 .description p,
-.classes p,
+.courses p,
 .makerspace p,
 .careers-section p,
 .goal p {
