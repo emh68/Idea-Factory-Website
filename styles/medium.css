@@ -44,6 +44,40 @@
         gap: 20px;
     }
 
+    .contact-section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .contact-container {
+        display: flex;
+        /* Use flexbox */
+        flex-direction: row;
+        /* Arrange items in a row */
+        justify-content: space-between;
+        /* Space between items */
+        /* align-items: center; */
+        align-items: flex-start;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    .company-address {
+        flex: .3;
+        /* Allow the address to take one column */
+        margin-top: 40px;
+        margin-right: 20px;
+        /* Space between the address and form */
+        /* text-align: center; */
+    }
+
+    .contact-form {
+        flex: 2;
+        /* Allow the form to take more space */
+    }
+
     .footer-container {
         display: grid;
         grid-template-columns: repeat(3, 200px);

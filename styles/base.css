@@ -545,3 +545,62 @@ form input {
     color: #CFE6FF;
     width: 150px;
 }
+
+/*-------- Contact Us ----------- */
+
+.contact-section h2 {
+    text-align: center;
+    margin: 60px;
+}
+
+.contact-section {
+    max-width: 100%;
+    width: 800px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+}
+
+.contact-container {
+    display: flex;
+    /* Use flexbox */
+    flex-direction: column;
+    /* Stack items vertically */
+    gap: 20px;
+    /* Space between items */
+}
+
+.company-address {
+    margin-bottom: 20px;
+    /* Space below the address */
+}
+
+.contact-form textarea {
+    width: 100%;
+    /* Full width of the parent container */
+    max-width: 400px;
+    /* Maximum width */
+    min-height: 100px;
+    /* Minimum height */
+    padding: 10px;
+    /* Padding for better text spacing */
+    border-radius: 5px;
+    /* Optional: rounded corners */
+    border: 1px solid #ccc;
+    /* Optional: border style */
+    resize: vertical;
+    /* Allow vertical resizing only */
+}
+
+#contactButton {
+    padding: 5px;
+    border-radius: 7px;
+    margin: 20px;
+    margin-left: 20px;
+    background-color: #150E60;
+    color: #CFE6FF;
+    width: 150px;
+}
