@@ -325,7 +325,9 @@ ul {
 
 .course-dates,
 .course-location,
+.course-length,
 .course-age,
+.course-requirements,
 .course-instructor,
 .course-cost {
     margin: 10px 10px 10px 0px;
