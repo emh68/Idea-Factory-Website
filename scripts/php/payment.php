@@ -82,7 +82,7 @@ try {
 
 
 
-
+<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -168,10 +168,10 @@ if (isset($subscription->latest_invoice) && is_object($subscription->latest_invo
 } else {
     echo "Subscription or invoice creation failed. Please contact support.";
 }
+?>
 
 
 
-<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -235,7 +235,7 @@ $subscription = $stripe->subscriptions->create([
 // Redirect to the Stripe-hosted invoice page for payment
 header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
 exit();
-?>
+
 
 
 
