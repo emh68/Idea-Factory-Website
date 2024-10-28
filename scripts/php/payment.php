@@ -17,58 +17,67 @@ if (!$stripeSecretKey) {
 
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 
-// Fetch class and user info from session (set by registration.php)
+// Fetch user info from session
 $selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class';
 $firstName = $_SESSION['first_name'] ?? 'Student';
 $lastName = $_SESSION['last_name'] ?? 'User';
-$age = $_SESSION['age'] ?? '0';
-$registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
 $email = $_SESSION['email'] ?? 'unknown@example.com';
 
-// Create a customer on Stripe
-$customer = $stripe->customers->create([
-    'email' => $email,
-    'name' => "$firstName $lastName",
-    'metadata' => [
-        'first_name' => $firstName,
-        'last_name' => $lastName,
-        'age' => $age,
-        'registration_id' => $registrationId,
-        'class' => $selectedClass,
-    ]
-]);
+// Step 1: Create a Customer
+try {
+    $customer = $stripe->customers->create([
+        'email' => $email,
+        'name' => "$firstName $lastName",
+        'metadata' => [
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'class' => $selectedClass,
+        ],
+    ]);
+} catch (\Stripe\Exception\ApiErrorException $e) {
+    echo "Error creating customer: " . $e->getMessage();
+    exit;
+}
 
-// Step 1: Create the product and price (only if they do not already exist)
-$product = $stripe->products->create([
-    'name' => "Registration for $selectedClass",
-]);
+// Step 2: Create Product and Price (if not already created in Stripe dashboard)
+try {
+    $product = $stripe->products->create([
+        'name' => "Registration for $selectedClass",
+    ]);
 
-$price = $stripe->prices->create([
-    'unit_amount' => 20000, // $200.00 in cents
-    'currency' => 'usd',
-    'recurring' => ['interval' => 'month'],
-    'product' => $product->id,
-]);
+    $price = $stripe->prices->create([
+        'unit_amount' => 20000, // $200 in cents
+        'currency' => 'usd',
+        'recurring' => ['interval' => 'month'],
+        'product' => $product->id,
+    ]);
+} catch (\Stripe\Exception\ApiErrorException $e) {
+    echo "Error creating product or price: " . $e->getMessage();
+    exit;
+}
 
-// Step 2: Create a Checkout Session for the subscription
-$checkoutSession = $stripe->checkout->sessions->create([
-    'mode' => 'subscription',
-    'payment_method_types' => ['card'],
-    'customer' => $customer->id,
-    'line_items' => [[
-        'price' => $price->id,
-        'quantity' => 1,
-    ]],
-    'success_url' => 'https://ideafactoryrexburg.com/success.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'https://ideafactoryrexburg.com/cancel.php',
-]);
+// Step 3: Create a Checkout Session for Subscription
+try {
+    $checkoutSession = $stripe->checkout->sessions->create([
+        'customer' => $customer->id,
+        'payment_method_types' => ['card'],
+        'line_items' => [[
+            'price' => $price->id,
+            'quantity' => 1,
+        ]],
+        'mode' => 'subscription',
+        'success_url' => 'https://ideafactoryrexburg.com/success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => 'https://ideafactoryrexburg.com/cancel.php',
+    ]);
 
-// Redirect to Stripe's hosted checkout page
-header("Location: " . $checkoutSession->url);
-exit();
+    // Redirect to Stripe's Checkout
+    header("Location: " . $checkoutSession->url);
+    exit();
+} catch (\Stripe\Exception\ApiErrorException $e) {
+    echo "Error creating checkout session: " . $e->getMessage();
+    exit;
+}
 ?>
-
-
 
 
 
