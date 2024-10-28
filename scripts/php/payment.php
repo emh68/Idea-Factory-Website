@@ -25,8 +25,13 @@ $age = $_SESSION['age'] ?? '0';
 $registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
 $email = $_SESSION['email'] ?? 'unknown@example.com';
 
-// Create a product and price for subscription if they don't exist (only do this once)
-// Check if your product and price are created in your Stripe dashboard, otherwise create here.
+// Create a customer or retrieve existing one using email
+$customer = $stripe->customers->create([
+    'email' => $email,
+    'name' => "$firstName $lastName",
+]);
+
+// Create a product and price for subscription (only do this once, if not already created)
 $product = $stripe->products->create([
     'name' => "Registration for $selectedClass",
 ]);
@@ -40,7 +45,7 @@ $price = $stripe->prices->create([
 
 // Create the subscription with 3 payment cycles
 $subscription = $stripe->subscriptions->create([
-    'customer_email' => $email,
+    'customer' => $customer->id,
     'items' => [[
         'price' => $price->id,
         'quantity' => 1,
