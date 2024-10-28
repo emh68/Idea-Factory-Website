@@ -156,7 +156,7 @@
                 </script>
         </span>
     </footer>
-    <script src="../scripts/js/index.js"></script>
+    <script src="/scripts/../js/index.js"></script>
 </body>
 
 </html>
