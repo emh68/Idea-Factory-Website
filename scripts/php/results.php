@@ -58,7 +58,7 @@
         } elseif ($message === "mailing_list") {
             echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
         }
-    
+    }
 
     ?>
 <!--     
