@@ -1,56 +1,56 @@
 <?php
-// Enable error reporting for debugging purposes
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'; // Stripe autoload
 
-session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+use Stripe\Stripe;
+use Stripe\Customer;
+use Stripe\Checkout\Session;
 
-// Load environment variables
-$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
-$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
-$dotenv->load();
+Stripe::setApiKey('your_secret_key');
 
-// Get Stripe Secret Key
-$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null;
-if (!$stripeSecretKey) {
-    die("Stripe Secret Key is not set.");
+// Get customer information from the form or session (passed from registration.php)
+$class_name = $_POST['class_name'];
+$user_name = $_POST['user_name'];
+$email = $_POST['email'];
+
+// Check if customer exists in Stripe to avoid duplicate creation
+$existing_customer = null;
+$customers = \Stripe\Customer::all(['email' => $email, 'limit' => 1]);
+
+if (!empty($customers->data)) {
+    $existing_customer = $customers->data[0];
 }
 
-\Stripe\Stripe::setApiKey($stripeSecretKey);
-
-// Retrieve registration details from session
-$fname = $_SESSION['first_name'] ?? null;
-$lname = $_SESSION['last_name'] ?? null;
-$email = $_SESSION['email'] ?? null;
-$selected_class = $_SESSION['selected_class'] ?? null;
-$registrationId = $_SESSION['registrationId'] ?? null;
-
-if (!$fname || !$lname || !$email || !$selected_class || !$registrationId) {
-    die("Required registration information is missing.");
-}
-
-try {
-    // Create a new payment intent for the $100 non-refundable registration fee
-    $paymentIntent = \Stripe\PaymentIntent::create([
-        'amount' => 10000, // $100 in cents
-        'currency' => 'usd',
-        'metadata' => [
-            'registration_id' => $registrationId,
-            'student_name' => "$fname $lname",
-            'class' => $selected_class,
-        ],
-        'receipt_email' => $email,
+// If the customer does not exist, create a new customer
+if (!$existing_customer) {
+    $customer = Customer::create([
+        'email' => $email,
+        'name' => $user_name,
     ]);
-
-    // Pass the payment intent client secret to the front-end for finalizing the payment
-    $_SESSION['client_secret'] = $paymentIntent->client_secret;
-    header("Location: /scripts/php/confirm_payment.php");
-    exit();
-} catch (\Stripe\Exception\ApiErrorException $e) {
-    echo 'Error creating payment intent: ' . $e->getMessage();
+} else {
+    $customer = $existing_customer;
 }
+
+// Create a Stripe Checkout session for the subscription
+$checkout_session = Session::create([
+    'customer' => $customer->id, // Link to the Stripe Customer
+    'payment_method_types' => ['card'],
+    'mode' => 'subscription',
+    'line_items' => [[
+        'price' => 'price_1NhJmLH5tgvpXqC7P6p1QwL2', // Replace with your subscription price ID
+        'quantity' => 1,
+    ]],
+    'success_url' => 'https://yourdomain.com/success.php?session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'https://yourdomain.com/cancel.html',
+    'metadata' => [
+        'class_name' => $class_name,
+        'user_name' => $user_name,
+        'email' => $email,
+    ]
+]);
+
+// Redirect to Stripe checkout
+header("Location: " . $checkout_session->url);
+exit;
 ?>
 
 
