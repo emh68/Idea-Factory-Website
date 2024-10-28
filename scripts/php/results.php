@@ -65,10 +65,6 @@
         echo "<p>Your email has been added to the mailing list.</p>";
         unset($_SESSION['mailing_list']);
     }
-    echo "<pre>";
-    print_r($_SESSION);
-    echo "</pre>";
-
     ?>
 
         <!-- <h2>Hello!</h2>
