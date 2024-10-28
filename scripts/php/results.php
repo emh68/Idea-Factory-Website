@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../../styles/normalize.css">
     <link rel="stylesheet" href="../../styles/base.css">
     <link rel="stylesheet" href="../../styles/medium.css">
-    <link rel="stylesheet" href="../../styles/larger.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta property="og:title" content="The Idea Factory">
     <meta property="og:type" content="website">
@@ -33,8 +32,8 @@
 
         <nav>
             <ul class="navigation">
-                <li><a href="../../classes.html">CLASSES</a></li>
-                <li><a href="../../memberships.html">MAKERSPACE</a></li>
+                <li><a href="../../courses.html">COURSES</a></li>
+                <li><a href="../../makerspace.html">MAKERSPACE</a></li>
                 <li><a href="../../careers.html">CAREERS</a></li>
                 <li><a href="../../contact.html">CONTACT</a></li>
                 <li><a href="../../faqs.html">FAQs</a></li>
@@ -85,22 +84,22 @@
         // } else {
         //     echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
         // }
-        if (isset($_SESSION['message'])) {
-            $message = $_SESSION['message'];
-            $messageType = $_SESSION['message_type'] ?? '';
+        // if (isset($_SESSION['message'])) {
+        //     $message = $_SESSION['message'];
+        //     $messageType = $_SESSION['message_type'] ?? '';
         
-            if ($messageType === 'registered') {
-                // Registration message
-            } elseif ($messageType === 'waiting_list') {
-                // Waiting list message
-            } elseif ($messageType === 'mailing_list') {
-                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>$message</div>";
-            }
+        //     if ($messageType === 'registered') {
+        //         // Registration message
+        //     } elseif ($messageType === 'waiting_list') {
+        //         // Waiting list message
+        //     } elseif ($messageType === 'mailing_list') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>$message</div>";
+        //     }
         
-            // Clear session variables
-            unset($_SESSION['message']);
-            unset($_SESSION['message_type']);
-        }
+        //     // Clear session variables
+        //     unset($_SESSION['message']);
+        //     unset($_SESSION['message_type']);
+        // }
     ?>
     </main>
 
@@ -110,7 +109,7 @@
                 <h3>Services</h3>
                 <ul>
                     <li><a href="../../membership.html">Makerspace</a></li>
-                    <li><a href="../../classes.html">Classes</a></li>
+                    <li><a href="../../courses.html">Courses</a></li>
                 </ul>
             </div>
             <div class="footer-column">
