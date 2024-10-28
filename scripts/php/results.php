@@ -43,22 +43,24 @@
     <main>
     <?php
     session_start();
+    var_dump($_SESSION);
+    // session_start();
     
-    // Check if there’s a message to display
-    if (isset($_SESSION['message'])) {
-        $message = $_SESSION['message'];
-        $firstName = $_SESSION['first_name'] ?? 'Student';
-        $class = $_SESSION['selected_class'] ?? 'Class';
+    // // Check if there’s a message to display
+    // if (isset($_SESSION['message'])) {
+    //     $message = $_SESSION['message'];
+    //     $firstName = $_SESSION['first_name'] ?? 'Student';
+    //     $class = $_SESSION['selected_class'] ?? 'Class';
     
-        // Display the message based on the status
-        if ($message === 'registered') {
-            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
-        } elseif ($message === 'waiting_list') {
-            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
-        } elseif ($message === "mailing_list") {
-            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
-        }
-    }
+    //     // Display the message based on the status
+    //     if ($message === 'registered') {
+    //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
+    //     } elseif ($message === 'waiting_list') {
+    //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+    //     } elseif ($message === "mailing_list") {
+    //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
+    //     }
+    // }
 
     ?>
 <!--     
