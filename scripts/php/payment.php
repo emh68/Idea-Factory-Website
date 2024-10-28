@@ -1,71 +1,44 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
-$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
-$dotenv->load();
+\Stripe\Stripe::setApiKey('your_stripe_secret_key'); // Replace with your actual Stripe secret key
 
-$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null;
-if (!$stripeSecretKey) {
-    die('Stripe secret key is not set or is empty.');
-}
+// Retrieve user details from the session
+$first_name = $_SESSION['first_name'];
+$last_name = $_SESSION['last_name'];
+$email = $_SESSION['email'];
+$class = $_SESSION['selected_class'];
 
-$stripe = new \Stripe\StripeClient($stripeSecretKey);
-
-// Fetch class and user info from session
-$selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class';
-$firstName = $_SESSION['first_name'] ?? 'Student';
-$lastName = $_SESSION['last_name'] ?? 'User';
-$age = $_SESSION['age'] ?? '0';
-$registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
-$email = $_SESSION['email'] ?? 'unknown@example.com';
-
-// Create a customer or retrieve existing one using email
-$customer = $stripe->customers->create([
-    'email' => $email,
-    'name' => "$firstName $lastName",
-]);
-
-// Create a product and price for subscription (only do this once, if not already created)
-$product = $stripe->products->create([
-    'name' => "Registration for $selectedClass",
-]);
-
-$price = $stripe->prices->create([
-    'unit_amount' => 20000, // $200.00 in cents
-    'currency' => 'usd',
-    'recurring' => ['interval' => 'month'],
-    'product' => $product->id,
-]);
-
-// Create the subscription with 3 payment cycles
-$subscription = $stripe->subscriptions->create([
-    'customer' => $customer->id,
-    'items' => [[
-        'price' => $price->id,
-        'quantity' => 1,
-    ]],
-    'payment_behavior' => 'default_incomplete',
-    'trial_period_days' => 0, // No trial; charge immediately
-    'metadata' => [
-        'first_name' => $firstName,
-        'last_name' => $lastName,
-        'age' => $age,
-        'class' => $selectedClass,
+// Step 1: Create a new Stripe Customer using the email from your registration form
+try {
+    $customer = \Stripe\Customer::create([
         'email' => $email,
-        'registration_id' => $registrationId,
-    ],
-    'cancel_at' => strtotime("+2 months"), // Ends subscription after three payments
-]);
+        'name' => $first_name . ' ' . $last_name,
+    ]);
 
-// Redirect user to payment page for subscription
-header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
-exit();
+    // Step 2: Use the generated customer ID in the Subscription
+    $subscription = \Stripe\Subscription::create([
+        'customer' => $customer->id,
+        'items' => [['price' => 'price_id_for_your_class']], // Replace 'price_id_for_your_class' with the actual Price ID for your class
+        'metadata' => [
+            'class' => $class,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+        ],
+    ]);
+
+    // Redirect to a success page or display success message
+    $_SESSION['message'] = "Registration and payment were successful!";
+    header("Location: /scripts/php/results.php");
+    exit();
+
+} catch (\Stripe\Exception\ApiErrorException $e) {
+    // Handle the error and store it in the session to display on results page
+    $_SESSION['message'] = "Payment error: " . $e->getMessage();
+    header("Location: /scripts/php/results.php");
+    exit();
+}
 ?>
 
 
