@@ -42,6 +42,32 @@
     </header>
     <main>
     <?php
+    session_start();
+    
+    // Check if there’s a message to display
+    if (isset($_SESSION['message'])) {
+        $message = $_SESSION['message'];
+        $firstName = $_SESSION['first_name'] ?? 'Student';
+        $class = $_SESSION['selected_class'] ?? 'Class';
+    
+        // Display the message based on the status
+        if ($message === 'registered') {
+            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
+        } elseif ($message === 'waiting_list') {
+            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+        } elseif ($message === "mailing_list") {
+            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
+        }
+    
+        // Clear session variables after displaying the message
+        unset($_SESSION['message']);
+        unset($_SESSION['first_name']);
+        unset($_SESSION['selected_class']);
+    } else {
+        echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
+    }
+    ?>
+<!--     
         // session_start();
         // if (isset($_SESSION['message'])) {
         //     $message = $_SESSION['message'];
@@ -63,44 +89,46 @@
         // }
 
         ///////////////////////////////////////////////////////
-        session_start();
-        if (isset($_SESSION['message'])) {
-            $message = $_SESSION['message'];
-            $firstName = $_SESSION['first_name'] ?? 'Student';
-            $class = $_SESSION['selected_class'] ?? 'Class';
+        // session_start();
+        // if (isset($_SESSION['message'])) {
+        //     $message = $_SESSION['message'];
+        //     $firstName = $_SESSION['first_name'] ?? 'Student';
+        //     $class = $_SESSION['selected_class'] ?? 'Class';
         
-            if ($message === 'registered') {
-                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
-            } elseif ($message === 'waiting_list') {
-                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
-            } elseif ($message === "You have been successfully added to the mailing list!") {
-                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
-            }
+        //     if ($message === 'registered') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
+        //     } elseif ($message === 'waiting_list') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+        //     } elseif ($message === "You have been successfully added to the mailing list!") {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
+        //     }
         
-            // Clear session variables after displaying the message
-            unset($_SESSION['message']);
-            unset($_SESSION['first_name']);
-            unset($_SESSION['selected_class']);
-        } else {
-            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
-        }
-        if (isset($_SESSION['message'])) {
-            $message = $_SESSION['message'];
-            $messageType = $_SESSION['message_type'] ?? '';
+        //     // Clear session variables after displaying the message
+        //     unset($_SESSION['message']);
+        //     unset($_SESSION['first_name']);
+        //     unset($_SESSION['selected_class']);
+        // } else {
+        //     echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
+        // }
+        // if (isset($_SESSION['message'])) {
+        //     $message = $_SESSION['message'];
+        //     $messageType = $_SESSION['message_type'] ?? '';
         
-            if ($messageType === 'registered') {
-                // Registration message
-            } elseif ($messageType === 'waiting_list') {
-                // Waiting list message
-            } elseif ($messageType === 'mailing_list') {
-                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>$message</div>";
-            }
+        //     if ($messageType === 'registered') {
+        //         // Registration message
+        //     } elseif ($messageType === 'waiting_list') {
+        //         // Waiting list message
+        //     } elseif ($messageType === 'mailing_list') {
+        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>$message</div>";
+        //     }
         
-            // Clear session variables
-            unset($_SESSION['message']);
-            unset($_SESSION['message_type']);
-        }
-    ?>
+        //     // Clear session variables
+        //     unset($_SESSION['message']);
+        //     unset($_SESSION['message_type']);
+        // } -->
+
+
+
     </main>
 
     <footer>
