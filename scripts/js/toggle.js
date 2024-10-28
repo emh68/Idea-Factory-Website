@@ -1,13 +1,3 @@
-// document.getElementById("toggle-info").addEventListener("click", function () {
-//     var courseInfo = document.getElementById("course-info");
-//     if (courseInfo.style.display === "none" || courseInfo.style.display === "") {
-//         courseInfo.style.display = "block";
-//         this.textContent = "-"; // Change button to minus
-//     } else {
-//         courseInfo.style.display = "none";
-//         this.textContent = "+"; // Change button back to plus
-//     }
-// });
 document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', function () {
         // Find the closest parent `.class-description` and then toggle the associated `.course-info`
