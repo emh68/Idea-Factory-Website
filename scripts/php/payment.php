@@ -1,4 +1,4 @@
-
+<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -77,7 +77,7 @@ try {
     echo "Error creating checkout session: " . $e->getMessage();
     exit;
 }
-
+?>
 
 
 
@@ -171,7 +171,7 @@ if (isset($subscription->latest_invoice) && is_object($subscription->latest_invo
 
 
 
-<?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -235,7 +235,7 @@ $subscription = $stripe->subscriptions->create([
 // Redirect to the Stripe-hosted invoice page for payment
 header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
 exit();
-?>
+
 
 
 
