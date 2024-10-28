@@ -67,7 +67,7 @@ try {
             'quantity' => 1,
         ]],
         'mode' => 'subscription',
-        'success_url' => 'https://ideafactoryrexburg.com/scripts/php/results.php?session_id={CHECKOUT_SESSION_ID}',
+        'success_url' => 'https://ideafactoryrexburg.com/scripts/php/results.php',
         'cancel_url' => 'https://ideafactoryrexburg.com/cancel.php',
     ]);
 
