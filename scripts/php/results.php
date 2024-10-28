@@ -45,7 +45,7 @@
     session_start();
     // Check if session messages are set and display them
     if (isset($_SESSION['message'])) {
-        echo "<h2>" . htmlspecialchars($_SESSION['message']) . "</h2>";
+        echo "<h3>" . htmlspecialchars($_SESSION['message']) . "</h3>";
         unset($_SESSION['message']); // Clear message after displaying it
     }
 
