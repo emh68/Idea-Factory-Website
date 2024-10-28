@@ -1,56 +1,67 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'; // Stripe autoload
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-use Stripe\Stripe;
-use Stripe\Customer;
-use Stripe\Checkout\Session;
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-Stripe::setApiKey('your_secret_key');
+$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
+$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
+$dotenv->load();
 
-// Get customer information from the form or session (passed from registration.php)
-$class_name = $_POST['class_name'];
-$user_name = $_POST['user_name'];
-$email = $_POST['email'];
-
-// Check if customer exists in Stripe to avoid duplicate creation
-$existing_customer = null;
-$customers = \Stripe\Customer::all(['email' => $email, 'limit' => 1]);
-
-if (!empty($customers->data)) {
-    $existing_customer = $customers->data[0];
+$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null;
+if (!$stripeSecretKey) {
+    die('Stripe secret key is not set or is empty.');
 }
 
-// If the customer does not exist, create a new customer
-if (!$existing_customer) {
-    $customer = Customer::create([
-        'email' => $email,
-        'name' => $user_name,
-    ]);
-} else {
-    $customer = $existing_customer;
-}
+$stripe = new \Stripe\StripeClient($stripeSecretKey);
 
-// Create a Stripe Checkout session for the subscription
-$checkout_session = Session::create([
-    'customer' => $customer->id, // Link to the Stripe Customer
-    'payment_method_types' => ['card'],
-    'mode' => 'subscription',
-    'line_items' => [[
-        'price' => 'price_1NhJmLH5tgvpXqC7P6p1QwL2', // Replace with your subscription price ID
-        'quantity' => 1,
-    ]],
-    'success_url' => 'https://yourdomain.com/success.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'https://yourdomain.com/cancel.html',
-    'metadata' => [
-        'class_name' => $class_name,
-        'user_name' => $user_name,
-        'email' => $email,
-    ]
+// Fetch class and user info from session (set by registration.php)
+$selectedClass = $_SESSION['selected_class'] ?? 'Unknown Class';
+$firstName = $_SESSION['first_name'] ?? 'Student';
+$lastName = $_SESSION['last_name'] ?? 'User';
+$age = $_SESSION['age'] ?? '0';
+$registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
+$email = $_SESSION['email'] ?? 'unknown@example.com';
+
+// Check if the product already exists on Stripe (use the Stripe dashboard to find existing products)
+// If not found, create a new product for class registration
+$product = $stripe->products->create([
+    'name' => "Registration for $selectedClass",
 ]);
 
-// Redirect to Stripe checkout
-header("Location: " . $checkout_session->url);
-exit;
+// Create a subscription price if it doesn’t already exist
+$price = $stripe->prices->create([
+    'unit_amount' => 20000, // $200.00 in cents
+    'currency' => 'usd',
+    'recurring' => ['interval' => 'month'],
+    'product' => $product->id,
+]);
+
+// Create the subscription for three payments
+$subscription = $stripe->subscriptions->create([
+    'customer_email' => $email,
+    'items' => [[
+        'price' => $price->id,
+        'quantity' => 1,
+    ]],
+    'payment_behavior' => 'default_incomplete',
+    'trial_period_days' => 0, // Charge immediately, no trial
+    'metadata' => [
+        'first_name' => $firstName,
+        'last_name' => $lastName,
+        'age' => $age,
+        'class' => $selectedClass,
+        'email' => $email,
+        'registration_id' => $registrationId,
+    ],
+    'cancel_at' => strtotime("+2 months"), // End after three payments
+]);
+
+// Redirect to the Stripe-hosted invoice page for payment
+header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
+exit();
 ?>
 
 
