@@ -59,13 +59,7 @@
             echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>You have been successfully added to the mailing list. We will keep you updated on future courses and events.</div>";
         }
     
-        // Clear session variables after displaying the message
-        unset($_SESSION['message']);
-        unset($_SESSION['first_name']);
-        unset($_SESSION['selected_class']);
-    } else {
-        echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
-    }
+
     ?>
 <!--     
         // session_start();
