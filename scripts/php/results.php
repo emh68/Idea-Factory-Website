@@ -41,8 +41,38 @@
         </nav>
     </header>
     <main>
-        <h2>Hello!</h2>
     <?php
+    session_start();
+    // Check if session messages are set and display them
+    if (isset($_SESSION['message'])) {
+        echo "<h2>" . htmlspecialchars($_SESSION['message']) . "</h2>";
+        unset($_SESSION['message']); // Clear message after displaying it
+    }
+
+    if (isset($_SESSION['first_name']) && isset($_SESSION['selected_class'])) {
+        echo "<p>" . htmlspecialchars($_SESSION['first_name']) . " has been successfully registered for " . htmlspecialchars($_SESSION['selected_class']) . ".</p>";
+        unset($_SESSION['first_name']);
+        unset($_SESSION['selected_class']);
+    }
+
+    // Additional messages for waiting list and mailing list
+    if (isset($_SESSION['waiting_list'])) {
+        echo "<p>You have been added to the waiting list.</p>";
+        unset($_SESSION['waiting_list']);
+    }
+
+    if (isset($_SESSION['mailing_list'])) {
+        echo "<p>Your email has been added to the mailing list.</p>";
+        unset($_SESSION['mailing_list']);
+    }
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
+
+    ?>
+
+        <!-- <h2>Hello!</h2>
+
     session_start();
     
     // Check if there’s a message to display
@@ -61,8 +91,8 @@
         }
         // Clear the message after displaying
         unset($_SESSION['message'], $_SESSION['first_name'], $_SESSION['selected_class']);
-    }
-    ?>
+    } -->
+
 <!--     
         // session_start();
         // if (isset($_SESSION['message'])) {
