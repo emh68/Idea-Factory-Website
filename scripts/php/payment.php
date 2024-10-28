@@ -70,13 +70,21 @@ $subscription = $stripe->subscriptions->create([
     'cancel_at' => strtotime("+2 months"), // Ends subscription after three payments
 ]);
 
-// Redirect to the Stripe-hosted invoice page for payment
-header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
-exit();
+// Check if the subscription and latest invoice are valid
+if (isset($subscription->latest_invoice) && is_object($subscription->latest_invoice)) {
+    $invoice = $stripe->invoices->retrieve($subscription->latest_invoice);
+    $hostedInvoiceUrl = $invoice->hosted_invoice_url ?? null;
+
+    if ($hostedInvoiceUrl) {
+        header('Location: ' . $hostedInvoiceUrl);
+        exit();
+    } else {
+        echo "Invoice URL not available. Please contact support.";
+    }
+} else {
+    echo "Subscription or invoice creation failed. Please contact support.";
+}
 ?>
-
-
-
 
 
 
