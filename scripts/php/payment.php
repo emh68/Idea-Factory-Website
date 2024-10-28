@@ -25,13 +25,24 @@ $age = $_SESSION['age'] ?? '0';
 $registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
 $email = $_SESSION['email'] ?? 'unknown@example.com';
 
-// Check if the product already exists on Stripe (use the Stripe dashboard to find existing products)
-// If not found, create a new product for class registration
+// Step 1: Create a customer on Stripe
+$customer = $stripe->customers->create([
+    'email' => $email,
+    'name' => "$firstName $lastName",
+    'metadata' => [
+        'first_name' => $firstName,
+        'last_name' => $lastName,
+        'age' => $age,
+        'registration_id' => $registrationId,
+        'class' => $selectedClass,
+    ]
+]);
+
+// Step 2: Create the product and price (only if they do not already exist)
 $product = $stripe->products->create([
     'name' => "Registration for $selectedClass",
 ]);
 
-// Create a subscription price if it doesn’t already exist
 $price = $stripe->prices->create([
     'unit_amount' => 20000, // $200.00 in cents
     'currency' => 'usd',
@@ -39,9 +50,9 @@ $price = $stripe->prices->create([
     'product' => $product->id,
 ]);
 
-// Create the subscription for three payments
+// Step 3: Create the subscription with the customer's ID
 $subscription = $stripe->subscriptions->create([
-    'customer_email' => $email,
+    'customer' => $customer->id,
     'items' => [[
         'price' => $price->id,
         'quantity' => 1,
@@ -56,13 +67,14 @@ $subscription = $stripe->subscriptions->create([
         'email' => $email,
         'registration_id' => $registrationId,
     ],
-    'cancel_at' => strtotime("+2 months"), // End after three payments
+    'cancel_at' => strtotime("+2 months"), // Ends subscription after three payments
 ]);
 
 // Redirect to the Stripe-hosted invoice page for payment
 header('Location: ' . $subscription->latest_invoice->hosted_invoice_url);
 exit();
 ?>
+
 
 
 
