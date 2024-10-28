@@ -157,9 +157,6 @@
         </span>
     </footer>
     <script src="../scripts/js/index.js"></script>
-    <!-- <script src="https://js.stripe.com/v3/"></script>
-    <script src="payment.js" defer></script> 
-    <script src="success.js" defer></script> -->
 </body>
 
 </html>
