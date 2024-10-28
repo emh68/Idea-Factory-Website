@@ -25,7 +25,7 @@ $age = $_SESSION['age'] ?? '0';
 $registrationId = $_SESSION['registrationId'] ?? 'Unknown ID';
 $email = $_SESSION['email'] ?? 'unknown@example.com';
 
-// Step 1: Create a customer on Stripe
+// Create a customer on Stripe
 $customer = $stripe->customers->create([
     'email' => $email,
     'name' => "$firstName $lastName",
@@ -38,7 +38,7 @@ $customer = $stripe->customers->create([
     ]
 ]);
 
-// Step 2: Create the product and price (only if they do not already exist)
+// Step 1: Create the product and price (only if they do not already exist)
 $product = $stripe->products->create([
     'name' => "Registration for $selectedClass",
 ]);
@@ -50,40 +50,22 @@ $price = $stripe->prices->create([
     'product' => $product->id,
 ]);
 
-// Step 3: Create the subscription with the customer's ID
-$subscription = $stripe->subscriptions->create([
+// Step 2: Create a Checkout Session for the subscription
+$checkoutSession = $stripe->checkout->sessions->create([
+    'mode' => 'subscription',
+    'payment_method_types' => ['card'],
     'customer' => $customer->id,
-    'items' => [[
+    'line_items' => [[
         'price' => $price->id,
         'quantity' => 1,
     ]],
-    'payment_behavior' => 'default_incomplete',
-    'trial_period_days' => 0, // Charge immediately, no trial
-    'metadata' => [
-        'first_name' => $firstName,
-        'last_name' => $lastName,
-        'age' => $age,
-        'class' => $selectedClass,
-        'email' => $email,
-        'registration_id' => $registrationId,
-    ],
-    'cancel_at' => strtotime("+2 months"), // Ends subscription after three payments
+    'success_url' => 'https://ideafactoryrexburg.com/success.php?session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'https://ideafactoryrexburg.com/cancel.php',
 ]);
 
-// Check if the subscription and latest invoice are valid
-if (isset($subscription->latest_invoice) && is_object($subscription->latest_invoice)) {
-    $invoice = $stripe->invoices->retrieve($subscription->latest_invoice);
-    $hostedInvoiceUrl = $invoice->hosted_invoice_url ?? null;
-
-    if ($hostedInvoiceUrl) {
-        header('Location: ' . $hostedInvoiceUrl);
-        exit();
-    } else {
-        echo "Invoice URL not available. Please contact support.";
-    }
-} else {
-    echo "Subscription or invoice creation failed. Please contact support.";
-}
+// Redirect to Stripe's hosted checkout page
+header("Location: " . $checkoutSession->url);
+exit();
 ?>
 
 
