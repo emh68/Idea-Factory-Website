@@ -59,8 +59,8 @@ $checkoutSession = $stripe->checkout->sessions->create([
         'price' => $price->id,
         'quantity' => 1,
     ]],
-    'success_url' => 'https://yourdomain.com/success.php?session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'https://yourdomain.com/cancel.php',
+    'success_url' => 'https://ideafactoryrexburg.com/success.php?session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'https://ideafactoryrexburg.com/cancel.php',
 ]);
 
 // Redirect to Stripe's hosted checkout page
