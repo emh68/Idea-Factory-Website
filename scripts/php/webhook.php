@@ -1,4 +1,42 @@
 <?php
+// webhook.php
+// Listen for the `invoice.paid` event
+$payload = @file_get_contents('php://input');
+$event = null;
+
+try {
+    $event = \Stripe\Webhook::constructEvent($payload, $_SERVER['HTTP_STRIPE_SIGNATURE'], $endpoint_secret);
+} catch(\UnexpectedValueException $e) {
+    // Invalid payload
+    http_response_code(400);
+    exit();
+} catch(\Stripe\Exception\SignatureVerificationException $e) {
+    // Invalid signature
+    http_response_code(400);
+    exit();
+}
+
+if ($event->type === 'invoice.paid') {
+    $invoice = $event->data->object; // contains a \Stripe\Invoice
+    $subscriptionId = $invoice->subscription;
+
+    // Fetch the subscription
+    $subscription = $stripe->subscriptions->retrieve($subscriptionId);
+
+    // Check how many invoices have been paid
+    if ($subscription->items->data[0]->billing_cycle_anchor <= strtotime("+2 months")) {
+        // Cancel the subscription after two more invoices have been paid
+        $stripe->subscriptions->update($subscriptionId, ['cancel_at_period_end' => true]);
+    }
+}
+
+// Respond with 200 OK
+http_response_code(200);
+?>
+
+
+
+
 // Use this to include the Stripe PHP library
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
@@ -67,7 +105,7 @@ switch ($event->type) {
 }
 
 http_response_code(200);
-?>
+
 
 
 
