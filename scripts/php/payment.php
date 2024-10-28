@@ -1,45 +1,58 @@
 <?php
+// Enable error reporting for debugging purposes
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-\Stripe\Stripe::setApiKey('your_stripe_secret_key'); // Replace with your actual Stripe secret key
+// Load environment variables
+$dotenvPath = '/home/njhuystvdlws/public_html/scripts/php/.env';
+$dotenv = Dotenv\Dotenv::createImmutable(dirname($dotenvPath));
+$dotenv->load();
 
-// Retrieve user details from the session
-$first_name = $_SESSION['first_name'];
-$last_name = $_SESSION['last_name'];
-$email = $_SESSION['email'];
-$class = $_SESSION['selected_class'];
+// Get Stripe Secret Key
+$stripeSecretKey = $_ENV['STRIPE_SECRET_KEY'] ?? null;
+if (!$stripeSecretKey) {
+    die("Stripe Secret Key is not set.");
+}
 
-// Step 1: Create a new Stripe Customer using the email from your registration form
+\Stripe\Stripe::setApiKey($stripeSecretKey);
+
+// Retrieve registration details from session
+$fname = $_SESSION['first_name'] ?? null;
+$lname = $_SESSION['last_name'] ?? null;
+$email = $_SESSION['email'] ?? null;
+$selected_class = $_SESSION['selected_class'] ?? null;
+$registrationId = $_SESSION['registrationId'] ?? null;
+
+if (!$fname || !$lname || !$email || !$selected_class || !$registrationId) {
+    die("Required registration information is missing.");
+}
+
 try {
-    $customer = \Stripe\Customer::create([
-        'email' => $email,
-        'name' => $first_name . ' ' . $last_name,
-    ]);
-
-    // Step 2: Use the generated customer ID in the Subscription
-    $subscription = \Stripe\Subscription::create([
-        'customer' => $customer->id,
-        'items' => [['price' => 'price_id_for_your_class']], // Replace 'price_id_for_your_class' with the actual Price ID for your class
+    // Create a new payment intent for the $100 non-refundable registration fee
+    $paymentIntent = \Stripe\PaymentIntent::create([
+        'amount' => 10000, // $100 in cents
+        'currency' => 'usd',
         'metadata' => [
-            'class' => $class,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
+            'registration_id' => $registrationId,
+            'student_name' => "$fname $lname",
+            'class' => $selected_class,
         ],
+        'receipt_email' => $email,
     ]);
 
-    // Redirect to a success page or display success message
-    $_SESSION['message'] = "Registration and payment were successful!";
-    header("Location: /scripts/php/results.php");
+    // Pass the payment intent client secret to the front-end for finalizing the payment
+    $_SESSION['client_secret'] = $paymentIntent->client_secret;
+    header("Location: /scripts/php/confirm_payment.php");
     exit();
-
 } catch (\Stripe\Exception\ApiErrorException $e) {
-    // Handle the error and store it in the session to display on results page
-    $_SESSION['message'] = "Payment error: " . $e->getMessage();
-    header("Location: /scripts/php/results.php");
-    exit();
+    echo 'Error creating payment intent: ' . $e->getMessage();
 }
 ?>
+
 
 
 
