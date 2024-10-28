@@ -41,6 +41,7 @@
         </nav>
     </header>
     <main>
+        <h2>Hello!</h2>
     <?php
     session_start();
     
