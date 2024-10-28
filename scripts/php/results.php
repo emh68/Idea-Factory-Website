@@ -50,7 +50,7 @@
     }
 
     if (isset($_SESSION['first_name']) && isset($_SESSION['selected_class'])) {
-        echo "<h3>" . htmlspecialchars($_SESSION['first_name']) . " has been successfully registered for " . htmlspecialchars($_SESSION['selected_class']) . ".</h3>";
+        echo "<h3 class='success-message'>" . htmlspecialchars($_SESSION['first_name']) . " has been successfully registered for " . htmlspecialchars($_SESSION['selected_class']) . ".</h3>";
         unset($_SESSION['first_name']);
         unset($_SESSION['selected_class']);
     }

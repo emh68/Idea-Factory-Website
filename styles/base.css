@@ -534,6 +534,16 @@ form input {
     width: 150px;
 }
 
+.success-message {
+    text-align: center;
+    font-size: 1.5em;
+    /* Adjusts size to look appropriate for an h3 */
+    margin-top: 20px;
+    /* Adds some space above the message */
+    color: #333;
+    /* Optional: Adjust color */
+}
+
 /*-------- Mailing List ----------- */
 
 .mailinglist h2 {
