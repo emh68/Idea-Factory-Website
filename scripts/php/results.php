@@ -42,25 +42,25 @@
     </header>
     <main>
     <?php
-        // session_start();
-        // if (isset($_SESSION['message'])) {
-        //     $message = $_SESSION['message'];
-        //     $firstName = $_SESSION['first_name'] ?? 'Student';
-        //     $class = $_SESSION['selected_class'] ?? 'Class';
+        session_start();
+        if (isset($_SESSION['message'])) {
+            $message = $_SESSION['message'];
+            $firstName = $_SESSION['first_name'] ?? 'Student';
+            $class = $_SESSION['selected_class'] ?? 'Class';
 
-        //     if ($message === 'registered') {
-        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
-        //     } elseif ($message === 'waiting_list') {
-        //         echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
-        //     }
+            if ($message === 'registered') {
+                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>{$firstName} has been successfully registered for {$class}.</div>";
+            } elseif ($message === 'waiting_list') {
+                echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>The class is full. You have been added to the waiting list.</div>";
+            }
 
-        //     // Clear session variables
-        //     unset($_SESSION['message']);
-        //     unset($_SESSION['first_name']);
-        //     unset($_SESSION['selected_class']);
-        // } else {
-        //     echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
-        // }
+            // Clear session variables
+            unset($_SESSION['message']);
+            unset($_SESSION['first_name']);
+            unset($_SESSION['selected_class']);
+        } else {
+            echo "<div id='message' style='margin: 0; padding: 20px; text-align: center;'>No message to display.</div>";
+        }
 
         ///////////////////////////////////////////////////////
         // session_start();
