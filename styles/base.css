@@ -544,6 +544,18 @@ form input {
     /* Optional: Adjust color */
 }
 
+/*-------- Makerspace ------------*/
+.makerspace h2 {
+    text-align: center;
+    padding: 40px 20px 0px;
+}
+
+.makerspace h3 {
+    text-align: center;
+    padding: 20px 20px 40px;
+}
+
+
 /*-------- Mailing List ----------- */
 
 .mailinglist h2 {
