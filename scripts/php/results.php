@@ -14,18 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <meta property="og:title" content="The Idea Factory">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="">
+    <meta property="og:image"
+        content="https://www.ideafactoryrexburg.com/images/teacher-with-students-reduced-size.jpg">
     <meta property="og:url" content="https://www.ideafactoryrexburg.com">
+    <meta property="og:description"
+        content="The Idea Factory is a makerspace where you can take classes to learn new skills and with a membership you can access our tools to build your ideas">
     <title>The Idea Factory</title>
 </head>
 
 <body>
 <header>
         <div class="logo">
-            <a href="index.html"><img src="../../images/Idea-Factory-logo-no-background.png" width="50" height="50"
+            <a href="../../index.html"><img src="../../images/Idea-Factory-logo-no-background.png" width="50" height="50"
                     alt=""></a>
         </div>
-        <a href="index.html">
+        <a href="../../index.html">
             <h1>IDEA FACTORY</h1>
         </a>
         <a id="menu" href="#" aria-label="Toggle Hamburger Menu"></a>
@@ -158,7 +161,7 @@
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul>
-                    <li><a href="../../membership.html">Makerspace</a></li>
+                    <li><a href="../../makerspace.html">Makerspace</a></li>
                     <li><a href="../../courses.html">Courses</a></li>
                 </ul>
             </div>
