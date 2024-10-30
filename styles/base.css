@@ -558,7 +558,7 @@ picture {
     justify-content: center; */
 }
 
-picture img {
+.instructors picture img {
     width: 240px;
     height: auto;
     border-radius: 5%;
