@@ -551,6 +551,40 @@ form input {
     /* Optional: Adjust color */
 }
 
+/*-------- Instructors -----------*/
+picture {
+    margin: 0 auto;
+    /* display: flex;
+    justify-content: center; */
+}
+
+picture img {
+    width: 240px;
+    height: auto;
+    border-radius: 5%;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 30px #777;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructors {
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 1rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 1rem;
+    background-color: #eee;
+}
+
+
+
 /*-------- Makerspace ------------*/
 .makerspace h2,
 .courses h2 {
