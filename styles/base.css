@@ -479,6 +479,13 @@ footer {
     padding: 40px;
 }
 
+a[href^="tel"] {
+    color: inherit;
+    /* Keeps the color the same as surrounding text */
+    text-decoration: none;
+    /* Removes any underline */
+}
+
 /*-------- Classes/Registration Form ----------- */
 .registration {
     /* background-image: linear-gradient(#6AD4E8 45%, #99EBDB, #AAF3D7); */
@@ -545,9 +552,27 @@ form input {
 }
 
 /*-------- Makerspace ------------*/
-.makerspace h2 {
+.makerspace h2,
+.courses h2 {
     text-align: center;
     padding: 40px 20px 0px;
+}
+
+.makerspace h2,
+.courses h2 {
+    color: #000;
+}
+
+.makerspace a,
+.courses a {
+    columns: #000;
+    text-decoration: none;
+}
+
+.makerspace h2 a:visited,
+.courses h2 a:visited {
+    text-decoration: none;
+    color: #000;
 }
 
 .makerspace h3 {
