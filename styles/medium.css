@@ -94,4 +94,28 @@
         gap: 10px;
         justify-content: center;
     }
+
+    /*-------- Instructors -----------*/
+
+    .card {
+        flex-direction: row;
+        /* Side-by-side layout for medium screens and up */
+        align-items: center;
+        max-width: 900px;
+        /* Wider layout for larger screens */
+    }
+
+    .instructors-img img {
+        width: 240px;
+        /* Fixed width on larger screens */
+        margin-right: 1rem;
+    }
+
+    .info {
+        text-align: left;
+        margin-top: 0;
+        /* Remove top margin for side-by-side layout */
+    }
+
+
 }
