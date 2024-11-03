@@ -47,7 +47,7 @@ try {
 
     // Create Price for $200 with recurring billing
     $price = $stripe->prices->create([
-        'unit_amount' => 20000, // $200 in cents
+        'unit_amount' => 18000, // $200 in cents
         'currency' => 'usd',
         'recurring' => ['interval' => 'month'],
         'product' => $product->id,
