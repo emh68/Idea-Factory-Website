@@ -536,7 +536,7 @@ form input {
     /* border: 1.5px solid #000; */
     border-radius: 7px;
     margin: 30px 0px 20px;
-    background-color: #150E60;
+    background-color: #2F3061;
     color: #CFE6FF;
     width: 150px;
 }
@@ -709,7 +709,7 @@ form input {
     border-radius: 7px;
     margin: 20px;
     margin-left: 20px;
-    background-color: #150E60;
+    background-color: #2F3061;
     color: #CFE6FF;
     width: 150px;
 }
@@ -836,7 +836,7 @@ body {
     border-radius: 7px;
     margin: 20px;
     margin-left: 20px;
-    background-color: #150E60;
+    background-color: #2F3061;
     color: #CFE6FF;
     width: 150px;
 }
@@ -872,4 +872,20 @@ body {
 .faqs h2 {
     text-align: center;
     margin-top: 40px;
+}
+
+.faqs {
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    max-width: 100%;
+    width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    /* font-family: var(--font_bxbold); */
+    /* color: #CFE6FF; */
+    /* background-color: #2F3061; */
+}
+
+.faq-item {
+    text-align: left;
 }

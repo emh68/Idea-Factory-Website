@@ -102,8 +102,9 @@
                         title="Last name must contain only letters." required>
 
                     <label for="age">Age*</label>
-                    <input type="number" id="age" name="age" required>
-                    <!-- min="12" max="16" title="Age must be between 12 and 16." -->
+                    <input type="number" id="age" name="age" min="12" max="16" title="Age must be between 12 and 16."
+                        required>
+
 
                     <label for="phone">Phone Number*</label>
                     <input type="tel" id="phone" name="phone" pattern="^\d{10}$"

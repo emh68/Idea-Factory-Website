@@ -117,5 +117,17 @@
         /* Remove top margin for side-by-side layout */
     }
 
+    /* .faqs {
+        border: 1px solid #CCC;
+        border-radius: 8px;
+        max-width: 100%;
+        width: 1200px;
+        margin: 0 auto;
+        color: #150E60;
+        background-color: #CF;
+    }
 
+    .faq-item {
+        text-align: left;
+    } */
 }
